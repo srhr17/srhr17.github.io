@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Hari Sivashanmugam - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <button class="hamburger-btn" id="hamburger-btn">☰</button>
+            <div class="header-content">
+                <h1>Sri Hari Sivashanmugam</h1>
+                <p>Data Scientist | Innovator | Problem Solver</p>
+            </div>
+        </div>
+        <nav class="navigation expanded" id="navigation">
+            <a href="#highlights">Highlights</a>
+            <a href="#experience">Experience & Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#blogs">Blogs</a>
+        </nav>
+    </header>
+    
+
+    <h1 id="highlights-title">Highlights</h1>
+    <section id="highlights" class="dashboard-container">
+        <div class="card">
+            <h3>Data Processed</h3>
+            <p>3.2M+</p>
+        </div>
+        <div class="card">
+            <h3>ETL Optimization</h3>
+            <p>85%</p>
+        </div>
+        <div class="card">
+            <h3>ML Model Accuracy</h3>
+            <p>97%</p>
+        </div>
+        <div class="card">
+            <h3>Dashboards Deployed</h3>
+            <p>150+</p>
+        </div>
+    </section>
+
+    <h1 id="experience-title">Experience & Education</h1>
+    <section id="experience" class="timeline-carousel">
+        <button class="carousel-btn left-btn" id="experience-prev">←</button>
+        <div class="timeline-track">
+            <div class="timeline-card">
+                <h4>Data Scientist</h4>
+                <p>Chicago Department of Public Health (2024 - Present)</p>
+                <ul>
+                    <li>Developed a longitudinal data model for 3.2M+ citizens.</li>
+                    <li>Engineered Spark-based ETL pipelines, reducing ingestion time by 28%.</li>
+                    <li>Deployed 150+ Tableau dashboards for community health metrics.</li>
+                </ul>
+            </div>
+            <div class="timeline-card">
+                <h4>Data Scientist</h4>
+                <p>Intellihot (2023 - 2024)</p>
+                <ul>
+                    <li>Developed asynchronous APIs, enhancing data accessibility by 97%.</li>
+                    <li>Conducted time-series analyses for predictive maintenance.</li>
+                    <li>Designed Power BI dashboards, reducing reporting time by 95%.</li>
+                </ul>
+            </div>
+            <div class="timeline-card">
+                <h4>Master's in Data Science</h4>
+                <p>Illinois Institute of Technology (2021 - 2023)</p>
+                <ul>
+                    <li>GPA: 3.7/4.0</li>
+                    <li>Relevant Coursework: Big Data Technologies, Neural Networks.</li>
+                    <li>Completed capstone on scalable data pipeline automation.</li>
+                </ul>
+            </div>
+            <div class="timeline-card">
+                <h4>Bachelor's in Computer Science</h4>
+                <p>Amrita Vishwa Vidyapeetham (2015 - 2019)</p>
+                <ul>
+                    <li>GPA: 8.95/10</li>
+                    <li>Relevant Coursework: Machine Learning, Cloud Computing.</li>
+                    <li>Built a custom database management system as a final-year project.</li>
+                </ul>
+            </div>
+        </div>
+        <button class="carousel-btn right-btn" id="experience-next">→</button>
+    </section>
+
+    <h1 id="projects-title">Projects</h1>
+    <section id="projects" class="carousel-container">
+        <div class="carousel-track" id="projects-track">
+            <!-- Projects dynamically populated -->
+        </div>
+        <button class="carousel-btn left-btn" id="projects-prev">←</button>
+        <button class="carousel-btn right-btn" id="projects-next">→</button>
+    </section>
+
+    <h1 id="blogs-title">Blogs</h1>
+    <section id="blogs" class="blogs-carousel">
+        <button class="carousel-btn left-btn" id="blogs-prev">←</button>
+        <div class="blogs-track" id="blogs-track">
+            <!-- Blogs dynamically populated -->
+        </div>
+        <button class="carousel-btn right-btn" id="blogs-next">→</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
