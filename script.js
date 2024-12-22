@@ -78,20 +78,26 @@ document.addEventListener('DOMContentLoaded', () => {
         projectsTrack.appendChild(projectCard);
     });
 
-    // Populate Blogs
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     const blogsTrack = document.getElementById('blogs-track');
     const blogs = [
         {
             title: 'Blog 1',
             description: 'Introduction to Data Science',
             link: 'blog1.html',
-            image: 'images/blog1.jpg'
+            image: 'images/blog1.jpg',
+            tags: ['Data Science', 'Beginner', 'Guide'],
+            date: '2024-01-10'
         },
         {
             title: 'Blog 2',
             description: 'ETL Pipelines Simplified',
             link: 'blog2.html',
-            image: 'images/blog2.jpg'
+            image: 'images/blog2.jpg',
+            tags: ['ETL', 'Data Engineering', 'Tutorial'],
+            date: '2024-01-08'
         }
     ];
 
@@ -102,11 +108,72 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="${blog.image}" alt="${blog.title}">
             <h3>${blog.title}</h3>
             <p>${blog.description}</p>
+            <p class="blog-date">Published: ${new Date(blog.date).toLocaleDateString()}</p>
+            <div class="blog-tags">
+                ${blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+            </div>
             <a href="${blog.link}" target="_blank">Read More</a>
         `;
         blogsTrack.appendChild(blogCard);
     });
+         // Reset carousel position on window resize
+         window.addEventListener('resize', updateBlogsPosition);
+});
 
-      // Reset carousel position on window resize
-      window.addEventListener('resize', updateBlogsPosition);
+
+document.addEventListener('DOMContentLoaded', () => {
+    AOS.init(); // Initialize AOS animations
+
+    // Existing scripts for carousels and navigation
+    const setupCarousel = (trackSelector, prevSelector, nextSelector) => {
+        const track = document.querySelector(trackSelector);
+        const cards = track.querySelectorAll('.carousel-card, .timeline-card');
+        const prevButton = document.querySelector(prevSelector);
+        const nextButton = document.querySelector(nextSelector);
+        let index = 0;
+
+        const updateCarouselPosition = () => {
+            const cardWidth = cards[0].offsetWidth;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        };
+
+        prevButton.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                updateCarouselPosition();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (index < cards.length - 1) {
+                index++;
+                updateCarouselPosition();
+            }
+        });
+
+        window.addEventListener('resize', updateCarouselPosition);
+    };
+
+    setupCarousel('.timeline-track', '#experience-prev', '#experience-next');
+    setupCarousel('.carousel-track', '#projects-prev', '#projects-next');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const newsContent = document.getElementById('news-content');
+
+    // Sample Data Science News
+    const newsItems = [
+        'OpenAI introduces ChatGPT updates for business insights |',
+        'Data Science salaries rise by 20% globally in 2024 |',
+        'New Python libraries simplify ML model deployment |',
+        'Big Data tools see a 30% increase in adoption this year |'
+    ];
+
+    // Duplicate items to create seamless looping
+    const duplicatedItems = newsItems.concat(newsItems);
+
+    // Populate the ticker with the news items
+    newsContent.innerHTML = duplicatedItems
+        .map(news => `<span class="news-item">${news}</span>`)
+        .join('');
 });

@@ -1,10 +1,12 @@
 /* General Styling */
-body {
+html, body {
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 0;
     background-color: #0d1117;
     color: #c9d1d9;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header Styling */
@@ -386,3 +388,128 @@ h1 {
     margin: 8;
     text-shadow: 0 0 15px #58a6ff;
 }
+
+/* Blog Card Styling */
+.blog-card {
+    flex: 0 0 300px;
+    background: #21262d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.blog-card h3 {
+    color: #58a6ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(88, 166, 255, 0.7);
+}
+
+.blog-card p {
+    color: #c9d1d9;
+    margin-bottom: 15px;
+}
+
+.blog-card a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    gap: 5;
+}
+
+.blog-card a:hover {
+    text-decoration: underline;
+}
+
+/* Blog Tags Styling */
+.blog-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.blog-tag {
+    background: #58a6ff;
+    /* background: #00b300; */
+    color: #0d1117;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 15px;
+    transition: background 0.3s;
+}
+
+.blog-tag:hover {
+    background: #39a1e4;
+}
+
+/* Blog Card Date Styling */
+.blog-card .blog-date {
+    color: #c9d1d9;
+    font-size: 0.9em;
+    margin: 2px 0;
+    font-style: italic;
+}
+
+.news-ticker {
+    background: #161b22; /* Optional: Set a background color */
+    color: #58a6ff;      /* Optional: Set text color */
+    overflow: hidden;    
+    white-space: nowrap;
+    padding: 2px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-width: 200px;    /* Limit the width of the ticker */
+    margin: 0 auto;      /* Center the ticker if desired */
+}
+
+.news-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 60s linear infinite;
+}
+
+.news-item {
+    margin: 0 10px;
+    display: inline-block;
+    color: #00b300;
+    font-size: 1em;
+}
+
+/* Adjust scrolling animation to start immediately */
+@keyframes scroll-left {
+    from {
+        transform: translateX(10%); /* Start outside the container */
+    }
+    to {
+        transform: translateX(-100%); /* Scroll fully across */
+    }
+}
+
+
+
+.typewriter{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #00b300; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00b300; }
+  }

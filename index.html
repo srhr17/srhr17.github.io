@@ -5,50 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Hari Sivashanmugam - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 </head>
 <body>
     <header>
         <div class="header-container">
             <button class="hamburger-btn" id="hamburger-btn">☰</button>
             <div class="header-content">
-                <h1>Sri Hari Sivashanmugam</h1>
-                <p>Data Scientist | Innovator | Problem Solver</p>
+                <h1 data-aos="fade-right" class="typewriter">Sri Hari Sivashanmugam</h1>
+                <p data-aos="fade-left">Data Scientist | Innovator | Problem Solver</p>
             </div>
         </div>
-        <nav class="navigation expanded" id="navigation">
+        
+        <nav class="navigation expanded" id="navigation" data-aos="fade-down">
             <a href="#highlights">Highlights</a>
             <a href="#experience">Experience & Education</a>
             <a href="#projects">Projects</a>
             <a href="#blogs">Blogs</a>
         </nav>
+        <div class="news-ticker"></div>
+        <div class="news-content" id="news-content">
+            <!-- News dynamically populated -->
+        </div>
+    </div>
     </header>
-    
 
-    <h1 id="highlights-title">Highlights</h1>
+    <h1 id="highlights-title" data-aos="zoom-in">Highlights</h1>
     <section id="highlights" class="dashboard-container">
-        <div class="card">
+        <div class="card" data-aos="fade-up">
             <h3>Data Processed</h3>
             <p>3.2M+</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
             <h3>ETL Optimization</h3>
             <p>85%</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
             <h3>ML Model Accuracy</h3>
             <p>97%</p>
         </div>
-        <div class="card">
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
             <h3>Dashboards Deployed</h3>
             <p>150+</p>
         </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <h3>ETL Optimization</h3>
+            <p>85%</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <h3>ML Model Accuracy</h3>
+            <p>97%</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
+            <h3>Dashboards Deployed</h3>
+            <p>150+</p>
+        </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
+            <h3>Dashboards Deployed</h3>
+            <p>150+</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <h3>ETL Optimization</h3>
+            <p>85%</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <h3>ML Model Accuracy</h3>
+            <p>97%</p>
+        </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <h3>ML Model Accuracy</h3>
+            <p>97%</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="600">
+            <h3>Download Resume</h3>
+            <p><a href="Sri Hari Sivashanmugam Resume (1).pdf" download="Sri Hari Sivashanmugam Resume (1).pdf">📄💾</a></p>
+        </div>
     </section>
 
-    <h1 id="experience-title">Experience & Education</h1>
+    <h1 id="experience-title" data-aos="zoom-in">Experience & Education</h1>
     <section id="experience" class="timeline-carousel">
-        <button class="carousel-btn left-btn" id="experience-prev">←</button>
-        <div class="timeline-track">
+        <button class="carousel-btn left-btn" id="experience-prev" data-aos="fade-right">←</button>
+        <div class="timeline-track" data-aos="fade-up">
             <div class="timeline-card">
+                <img src="images/experience_icon1.png" alt="Experience Icon" class="experience-icon">
                 <h4>Data Scientist</h4>
                 <p>Chicago Department of Public Health (2024 - Present)</p>
                 <ul>
@@ -57,16 +98,9 @@
                     <li>Deployed 150+ Tableau dashboards for community health metrics.</li>
                 </ul>
             </div>
+            
             <div class="timeline-card">
-                <h4>Data Scientist</h4>
-                <p>Intellihot (2023 - 2024)</p>
-                <ul>
-                    <li>Developed asynchronous APIs, enhancing data accessibility by 97%.</li>
-                    <li>Conducted time-series analyses for predictive maintenance.</li>
-                    <li>Designed Power BI dashboards, reducing reporting time by 95%.</li>
-                </ul>
-            </div>
-            <div class="timeline-card">
+                <img src="images/education_icon1.png" alt="Education Icon" class="experience-icon">
                 <h4>Master's in Data Science</h4>
                 <p>Illinois Institute of Technology (2021 - 2023)</p>
                 <ul>
@@ -75,30 +109,55 @@
                     <li>Completed capstone on scalable data pipeline automation.</li>
                 </ul>
             </div>
+
             <div class="timeline-card">
-                <h4>Bachelor's in Computer Science</h4>
-                <p>Amrita Vishwa Vidyapeetham (2015 - 2019)</p>
+                <img src="images/education_icon1.png" alt="Education Icon" class="experience-icon">
+                <h4>Master's in Data Science</h4>
+                <p>Illinois Institute of Technology (2021 - 2023)</p>
                 <ul>
-                    <li>GPA: 8.95/10</li>
-                    <li>Relevant Coursework: Machine Learning, Cloud Computing.</li>
-                    <li>Built a custom database management system as a final-year project.</li>
+                    <li>GPA: 3.7/4.0</li>
+                    <li>Relevant Coursework: Big Data Technologies, Neural Networks.</li>
+                    <li>Completed capstone on scalable data pipeline automation.</li>
                 </ul>
             </div>
+
+            <div class="timeline-card">
+                <img src="images/education_icon1.png" alt="Education Icon" class="experience-icon">
+                <h4>Master's in Data Science</h4>
+                <p>Illinois Institute of Technology (2021 - 2023)</p>
+                <ul>
+                    <li>GPA: 3.7/4.0</li>
+                    <li>Relevant Coursework: Big Data Technologies, Neural Networks.</li>
+                    <li>Completed capstone on scalable data pipeline automation.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-card">
+                <img src="images/education_icon1.png" alt="Education Icon" class="experience-icon">
+                <h4>Master's in Data Science</h4>
+                <p>Illinois Institute of Technology (2021 - 2023)</p>
+                <ul>
+                    <li>GPA: 3.7/4.0</li>
+                    <li>Relevant Coursework: Big Data Technologies, Neural Networks.</li>
+                    <li>Completed capstone on scalable data pipeline automation.</li>
+                </ul>
+            </div>
+            
         </div>
-        <button class="carousel-btn right-btn" id="experience-next">→</button>
+        <button class="carousel-btn right-btn" id="experience-next" data-aos="fade-left">→</button>
     </section>
 
-    <h1 id="projects-title">Projects</h1>
+    <h1 id="projects-title" data-aos="zoom-in">Projects</h1>
     <section id="projects" class="carousel-container">
-        <div class="carousel-track" id="projects-track">
+        <div class="carousel-track" id="projects-track" data-aos="fade-up">
             <!-- Projects dynamically populated -->
         </div>
-        <button class="carousel-btn left-btn" id="projects-prev">←</button>
-        <button class="carousel-btn right-btn" id="projects-next">→</button>
+        <button class="carousel-btn left-btn" id="projects-prev" data-aos="fade-right">←</button>
+        <button class="carousel-btn right-btn" id="projects-next" data-aos="fade-left">→</button>
     </section>
 
-    <h1 id="blogs-title">Blogs</h1>
-    <section id="blogs" class="blogs-carousel">
+    <h1 id="blogs-title" data-aos="zoom-in">Blogs</h1>
+    <section id="blogs" class="blogs-carousel" data-aos="fade-up">
         <button class="carousel-btn left-btn" id="blogs-prev">←</button>
         <div class="blogs-track" id="blogs-track">
             <!-- Blogs dynamically populated -->
@@ -106,6 +165,7 @@
         <button class="carousel-btn right-btn" id="blogs-next">→</button>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
