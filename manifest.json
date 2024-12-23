@@ -1,0 +1,15 @@
+{
+    "name": "Sri Hari Sivashanmugam",
+    "short_name": "Sri Hari",
+    "start_url": "https://srihari.is-a.dev/",
+    "theme_color": "#58a6ff",
+    "background_color": "#58a6ff",
+    "display": "standalone",
+    "scope": "/",
+    "description": "Sri Hari's World",
+    "orientation": "any",
+    "icons": [{
+        "src": "assets/sri.jpg",
+        "sizes": "350x350"
+    }]
+}
