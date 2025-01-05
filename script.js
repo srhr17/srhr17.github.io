@@ -111,6 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Shared Blog Data
     const blogs = [
         {
+            title: 'Importance of Data Representation in Food labels',
+            description: 'Comparing Food Labeling Styles between two coutries',
+            link: 'blogs/food-labels.html',
+            image: 'assets/food-labels.webp',
+            tags: ['Personnal Thoughts', 'Beginner', 'Data Representation','Bite Sized Read'],
+            date: '2025-01-05'
+        },
+        {
             title: 'Data Cleaning 101: Tidying Data for Success',
             description: 'Why data cleaning is important?',
             link: 'blogs/data-tidying.html',
