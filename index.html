@@ -1,32 +1,2058 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B4XWB3XT5J"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-B4XWB3XT5J');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Hari Sivashanmugam - Portfolio</title>
-    <link rel="icon" href="assets/sri.jpg" type="image/jpeg">
+    <meta name="description" content="Sri Hari Sivashanmugam - Enterprise Data Architect & Data Scientist specializing in Azure, machine learning, big data, and scalable data platforms. 3.2M+ citizens served with 97% ML accuracy.">
+    <meta name="keywords" content="Data Scientist, Machine Learning Engineer, Azure Data Architect, Big Data, Python, Spark, Tableau, SQL, Enterprise Data Architecture, Chicago, Public Health Informatics, FHIR, HL7, USCDI">
+    <meta name="author" content="Sri Hari Sivashanmugam">
+    <meta property="og:title" content="Sri Hari Sivashanmugam - Data Scientist & Enterprise Data Architect">
+    <meta property="og:description" content="Driving data modernization initiatives serving 3.2M+ citizens. Expert in Azure, ML, Big Data, and scalable analytics platforms.">
+    <meta property="og:type" content="website">
+    <title>Sri Hari Sivashanmugam - Data Scientist | Machine Learning Engineer | Azure Data Architect</title>
     <style>
-        body, html {
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Karla:wght@300;400;500;600;700&display=swap');
+        
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
+            box-sizing: border-box;
         }
-        iframe {
+
+        :root {
+            --cream: #F9F6F1;
+            --white: #FFFFFF;
+            --sage: #8FA998;
+            --forest: #5F7367;
+            --clay: #B8957A;
+            --slate: #6B7C85;
+            --charcoal: #3A4446;
+            --light-sage: rgba(143, 169, 152, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Karla', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 60px);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 246, 241, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(143, 169, 152, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(15px, 3vw, 25px) clamp(20px, 5vw, 60px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: clamp(20px, 4vw, 35px);
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: clamp(13px, 2vw, 15px);
+            font-weight: 500;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            color: var(--sage);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--forest);
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 70%;
+                height: calc(100vh - 60px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 40px 30px;
+                gap: 30px;
+                transition: right 0.3s;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: clamp(80px, 12vh, 120px) 0 clamp(40px, 8vh, 60px);
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--light-sage);
+            color: var(--sage);
+            border-radius: 50px;
+            font-size: clamp(10px, 1.8vw, 12px);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: clamp(15px, 2.5vh, 25px);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(28px, 6vw, 64px);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--charcoal);
+            margin-bottom: clamp(15px, 2.5vh, 25px);
+            max-width: 900px;
+        }
+
+        .hero-description {
+            font-size: clamp(15px, 2.2vw, 18px);
+            line-height: 1.7;
+            color: var(--slate);
+            max-width: 650px;
+            margin-bottom: clamp(30px, 4vh, 50px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: clamp(20px, 4vw, 40px);
+            max-width: 700px;
+        }
+
+        .stat {
+            border-left: 3px solid var(--sage);
+            padding-left: clamp(12px, 2vw, 18px);
+        }
+
+        .stat-number {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(28px, 4.5vw, 42px);
+            font-weight: 700;
+            color: var(--forest);
+            line-height: 1;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: clamp(11px, 1.8vw, 13px);
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        /* Section */
+        section {
+            padding: clamp(60px, 10vh, 100px) 0;
+        }
+
+        .section-header {
+            margin-bottom: clamp(40px, 6vh, 60px);
+        }
+
+        .section-tag {
+            font-size: clamp(11px, 2vw, 13px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--sage);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--sage), var(--clay));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: clamp(30px, 5vw, 50px);
+            margin-bottom: clamp(50px, 8vh, 80px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--white);
+            border: 3px solid var(--sage);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(14px, 2vw, 16px);
+            color: var(--sage);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .role {
+            font-size: clamp(16px, 2.5vw, 18px);
+            color: var(--slate);
+            font-weight: 600;
+            margin-bottom: clamp(15px, 2vh, 20px);
+        }
+
+        .description {
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 1.8;
+            color: var(--slate);
+            margin-bottom: clamp(15px, 2vh, 20px);
+        }
+
+        .highlights {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 1.5vh, 12px);
+        }
+
+        .highlights li {
+            padding-left: clamp(20px, 3vw, 25px);
+            position: relative;
+            font-size: clamp(13px, 2vw, 15px);
+            line-height: 1.7;
+            color: var(--slate);
+        }
+
+        .highlights li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--sage);
+            font-weight: 700;
+        }
+
+        /* Projects */
+        .projects-section {
+            background: linear-gradient(180deg, var(--cream), rgba(143, 169, 152, 0.08));
+            padding: clamp(60px, 10vh, 100px) 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+            gap: clamp(20px, 3vw, 30px);
+        }
+
+        .project {
+            background: var(--white);
+            padding: clamp(30px, 4vw, 40px);
+            border-radius: 12px;
+            border: 1px solid rgba(143, 169, 152, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project::after {
+            content: 'Click to view details →';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 12px;
+            color: var(--sage);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: 600;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--sage);
+        }
+
+        .project:hover::after {
+            opacity: 1;
+        }
+
+        .project-card-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--light-sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sage);
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .project:hover .project-card-icon {
+            background: var(--sage);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        /* Project Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: clamp(30px, 5vw, 50px);
+            border-bottom: 1px solid rgba(143, 169, 152, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: clamp(20px, 4vw, 30px);
+            right: clamp(20px, 4vw, 30px);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-sage);
             border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--forest);
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--sage);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .modal-number {
+            font-size: clamp(12px, 2vw, 14px);
+            color: var(--clay);
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .modal-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 700;
+            color: var(--charcoal);
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .modal-body {
+            padding: clamp(30px, 5vw, 50px);
+        }
+
+        .modal-description {
+            font-size: clamp(15px, 2.5vw, 17px);
+            line-height: 1.8;
+            color: var(--slate);
+            margin-bottom: 30px;
+        }
+
+        .modal-tech {
+            margin-top: 30px;
+        }
+
+        .modal-tech h4 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            padding: 8px 16px;
+            background: var(--light-sage);
+            color: var(--forest);
+            border-radius: 20px;
+            font-size: clamp(12px, 2vw, 14px);
+            font-weight: 500;
+        }
+
+        /* Easter Egg - Konami Code */
+        .easter-egg {
+            display: none;
+        }
+
+        /* Confetti - Paper style */
+        .confetti-piece {
+            position: fixed;
+            width: 12px;
+            height: 20px;
+            top: -50px;
+            z-index: 9998;
+            animation: confettiFall 4s linear;
+        }
+
+        .confetti-piece::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: currentColor;
+            border-radius: 2px;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Image */
+        .hero-image {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        /* About Section with Images */
+        .about-section {
+            padding: clamp(80px, 12vh, 120px) 0;
+            background: linear-gradient(180deg, rgba(143, 169, 152, 0.05), var(--cream));
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(30px, 5vw, 50px);
+            margin-top: 60px;
+        }
+
+        .about-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding: clamp(20px, 4vw, 30px);
+        }
+
+        .about-content h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(20px, 3vw, 24px);
+            color: var(--forest);
+            margin-bottom: 12px;
+        }
+
+        .about-content p {
+            font-size: clamp(14px, 2vw, 15px);
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* Secret Mode Toggle */
+        .secret-mode {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 60px;
+            background: var(--sage);
+            border-radius: 0 10px 10px 0;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            opacity: 0.3;
+        }
+
+        .secret-mode:hover {
+            opacity: 1;
+            width: 40px;
+        }
+
+        body.party-mode {
+            animation: colorShift 5s infinite;
+        }
+
+        @keyframes colorShift {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Hidden Achievement Badge */
+        .achievement {
+            position: fixed;
+            top: 100px;
+            right: -300px;
+            background: var(--forest);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 10px 0 0 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            transition: right 0.5s ease;
+            font-size: 14px;
+            max-width: 250px;
+        }
+
+        .achievement.show {
+            right: 0;
+        }
+
+        .achievement-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 20px;
+            z-index: 9997;
+            animation: sparkleFloat 2s ease-out forwards;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: translateY(0) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--sage);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            z-index: 99999;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        /* Party Mode Controls */
+        .party-controls {
+            position: fixed;
+            bottom: 100px;
+            left: 0;
+            transform: translateX(-100%);
+            background: var(--sage);
+            padding: 12px 20px;
+            border-radius: 0 25px 25px 0;
+            z-index: 10001;
+            transition: transform 0.3s;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .party-controls.active {
+            transform: translateX(0);
+        }
+
+        .party-off-btn {
+            background: var(--white);
+            color: var(--forest);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .party-off-btn:hover {
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --cream: #1a1a1a;
+            --white: #2d2d2d;
+            --sage: #a8c5b5;
+            --forest: #c5d9cb;
+            --clay: #d4b89f;
+            --slate: #b8c5d0;
+            --charcoal: #e8e8e8;
+            --light-sage: rgba(168, 197, 181, 0.1);
+        }
+
+        body.dark-mode .theme-toggle {
+            background: var(--clay);
+        }
+
+        body.dark-mode .confetti-piece {
+            border-color: var(--sage);
+        }
+
+        body.dark-mode .hero-image,
+        body.dark-mode .about-image {
+            opacity: 0.9;
+        }
+
+        /* Skill Detail Modal */
+        .skill-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10002;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .skill-modal.active {
+            display: flex;
+        }
+
+        .skill-modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .skill-modal-header {
+            padding: clamp(30px, 5vw, 40px);
+            border-bottom: 1px solid rgba(143, 169, 152, 0.2);
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 10;
+        }
+
+        .skill-modal-close {
+            position: absolute;
+            top: clamp(20px, 4vw, 25px);
+            right: clamp(20px, 4vw, 25px);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--light-sage);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--forest);
+            transition: all 0.3s;
+        }
+
+        .skill-modal-close:hover {
+            background: var(--sage);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .skill-modal-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 8px;
+        }
+
+        .skill-modal-subtitle {
+            font-size: clamp(14px, 2vw, 16px);
+            color: var(--slate);
+        }
+
+        .skill-modal-body {
+            padding: clamp(25px, 5vw, 40px);
+        }
+
+        .skill-usage-section {
+            margin-bottom: clamp(30px, 5vh, 40px);
+        }
+
+        .skill-usage-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(20px, 3vw, 24px);
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-section-icon {
+            font-size: clamp(20px, 3vw, 24px);
+        }
+
+        .skill-usage-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-usage-item {
+            padding: 15px 20px;
+            background: var(--light-sage);
+            border-radius: 12px;
+            border-left: 4px solid var(--sage);
+            transition: all 0.3s;
+        }
+
+        .skill-usage-item:hover {
+            background: rgba(143, 169, 152, 0.15);
+            transform: translateX(5px);
+        }
+
+        .skill-usage-title {
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 4px;
+            font-size: clamp(15px, 2vw, 16px);
+        }
+
+        .skill-usage-desc {
+            font-size: clamp(13px, 2vw, 14px);
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .project-number {
+            font-size: clamp(12px, 2vw, 13px);
+            color: var(--clay);
+            font-weight: 600;
+            margin-bottom: clamp(12px, 2vh, 15px);
+            letter-spacing: 1px;
+        }
+
+        .project h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(20px, 3vw, 24px);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: clamp(12px, 2vh, 15px);
+            line-height: 1.4;
+        }
+
+        .project p {
+            font-size: clamp(14px, 2vw, 15px);
+            line-height: 1.7;
+            color: var(--slate);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(20px, 3vw, 30px);
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: clamp(25px, 4vw, 35px);
+            border-radius: 12px;
+            border: 1px solid rgba(143, 169, 152, 0.2);
+        }
+
+        .skill-category h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(18px, 3vw, 22px);
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: clamp(15px, 2vh, 20px);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 1.5vh, 12px);
+        }
+
+        .skill-item {
+            font-size: clamp(13px, 2vw, 15px);
+            color: var(--slate);
+            padding: clamp(6px, 1vh, 8px) 0;
+            border-bottom: 1px solid rgba(143, 169, 152, 0.15);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-item:hover {
+            padding-left: 10px;
+            color: var(--forest);
+            background: var(--light-sage);
+        }
+
+        /* Contact */
+        .contact-section {
+            background: linear-gradient(135deg, var(--sage), var(--forest));
+            padding: clamp(80px, 12vh, 120px) 0;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: clamp(20px, 3vh, 30px);
+        }
+
+        .contact-subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: clamp(35px, 5vh, 50px);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 20px);
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            padding: clamp(12px, 2vh, 16px) clamp(25px, 4vw, 35px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(13px, 2vw, 15px);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .contact-link:hover {
+            background: var(--white);
+            color: var(--sage);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: clamp(40px, 6vh, 60px) 0;
+            text-align: center;
+            color: var(--slate);
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--sage);
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print styles */
+        @media print {
+            nav, .scroll-progress, .contact-section {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-   <iframe src="https://sriharisivashanmugam.notion.site/ebd/27b5d27c1aa080d1b2c2f87e76b5148c" allow="fullscreen"></iframe>
+    <div class="scroll-progress"></div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Sri Hari S.</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" onclick="closeMenu()">Home</a></li>
+                <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+                <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Data Scientist · Chicago</span>
+                <h1>Sri Hari Sivashanmugam</h1>
+                <p class="hero-description">
+                    Enterprise Data Architect & Data Scientist specializing in scalable data platforms, 
+                    machine learning, and cloud architecture. Driving data modernization initiatives 
+                    serving 3.2M+ citizens with expertise in Azure, big data, and production-grade ML systems.
+                </p>
+                <img src="https://i.ibb.co/qkLt4Sv/name-logo.png" alt="Sri Hari Sivashanmugam" class="hero-image">
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3.2M+</span>
+                        <span class="stat-label">Citizens Served</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">97%</span>
+                        <span class="stat-label">Model Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Dashboards Built</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto 60px;">
+                <p style="font-size: clamp(16px, 2.5vw, 18px); line-height: 1.8; color: var(--slate); margin-bottom: 20px;">
+                    High-impact Data Scientist and Enterprise Data Architect with deep expertise in designing scalable, 
+                    production-grade data models that drive decision-making across public sector, healthcare, and enterprise environments. 
+                    Specializing in transforming fragmented, high-volume datasets into centralized, interoperable data platforms that 
+                    support analytics, governance, and regulatory compliance.
+                </p>
+                <p style="font-size: clamp(16px, 2.5vw, 18px); line-height: 1.8; color: var(--slate); margin-bottom: 20px;">
+                    Currently at the City of Chicago, architecting data modernization efforts consolidating multi-agency sources into 
+                    unified models enabling real-time insights and strategic planning. Expert in USCDI standards, HL7/FHIR integration, 
+                    and building data infrastructure that performs at scale across industries.
+                </p>
+                <p style="font-size: clamp(16px, 2.5vw, 18px); line-height: 1.8; color: var(--slate);">
+                    <strong style="color: var(--forest);">Core Competencies:</strong> Enterprise Data Architecture • Azure Cloud Solutions • 
+                    Scalable Data Pipelines • Machine Learning • Metadata Governance • Standards-Driven Modeling • 
+                    Agile Cross-Functional Collaboration
+                </p>
+            </div>
+            
+            <div class="section-header" style="margin-top: 80px;">
+                <span class="section-tag">Education & Certifications</span>
+                <h2 class="section-title" style="font-size: clamp(32px, 4vw, 48px);">Academic Background</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px;">
+                <div class="about-card fade-in">
+                    <div class="about-content">
+                        <h3>Master of Data Science</h3>
+                        <p style="color: var(--sage); font-weight: 600; margin-bottom: 8px;">Illinois Institute of Technology</p>
+                        <p style="color: var(--slate); margin-bottom: 12px;">GPA: 3.7/4.0 • 2023</p>
+                        <p style="font-size: 14px; line-height: 1.6;">
+                            Specialized in Big Data Technologies, Neural Networks, Time Series Analysis, Data Mining, 
+                            Statistical Learning, and Cloud Computing
+                        </p>
+                    </div>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-content">
+                        <h3>Bachelor of Technology</h3>
+                        <p style="color: var(--sage); font-weight: 600; margin-bottom: 8px;">Amrita Vishwa Vidyapeetham</p>
+                        <p style="color: var(--slate); margin-bottom: 12px;">Computer Science • GPA: 8.95/10.0 • 2021</p>
+                        <p style="font-size: 14px; line-height: 1.6;">
+                            Focus on Neural Networks, Machine Learning, Cloud Computing, Database Management, 
+                            and Software Engineering
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="section-tag">Beyond The Data</span>
+                <h2 class="section-title" style="font-size: clamp(32px, 4vw, 48px);">When I'm Not Coding</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <img src="https://i.ibb.co/hX9Tnjs/coding.png" alt="Coding with music" class="about-image">
+                    <div class="about-content">
+                        <h3>Creative Problem Solver</h3>
+                        <p>Building elegant data solutions while exploring new technologies. Code is my canvas, data is my art.</p>
+                    </div>
+                </div>
+                <div class="about-card fade-in">
+                    <img src="https://i.ibb.co/M9YQ8Tt/hiking.png" alt="Hiking adventure" class="about-image">
+                    <div class="about-content">
+                        <h3>Mountain Explorer</h3>
+                        <p>Finding clarity and inspiration in nature. Every hike teaches patience, perspective, and perseverance.</p>
+                    </div>
+                </div>
+                <div class="about-card fade-in">
+                    <img src="https://i.ibb.co/J7FQp3X/running.png" alt="Running outdoors" class="about-image">
+                    <div class="about-content">
+                        <h3>Fitness Enthusiast</h3>
+                        <p>Running towards goals, both personal and professional. Maintaining balance through active lifestyle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>/hX9Tnjs/coding.png" alt="Coding with music" class="about-image">
+                    <div class="about-content">
+                        <h3>Creative Coder</h3>
+                        <p>Building elegant solutions while jamming to good music. Code is my canvas, data is my art.</p>
+                    </div>
+                </div>
+                <div class="about-card fade-in">
+                    <img src="https://i.ibb.co/M9YQ8Tt/hiking.png" alt="Hiking adventure" class="about-image">
+                    <div class="about-content">
+                        <h3>Mountain Explorer</h3>
+                        <p>Finding clarity and inspiration in nature. Every hike teaches patience and perspective.</p>
+                    </div>
+                </div>
+                <div class="about-card fade-in">
+                    <img src="https://i.ibb.co/J7FQp3X/running.png" alt="Running outdoors" class="about-image">
+                    <div class="about-content">
+                        <h3>Fitness Enthusiast</h3>
+                        <p>Running towards goals, both personal and professional. A healthy mind in a healthy body.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Professional Journey</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2024 – Present</div>
+                    <h3 class="company">Chicago Department of Public Health</h3>
+                    <div class="role">Data Scientist</div>
+                    <p class="description">
+                        Leading data modernization initiatives for public health infrastructure serving 3.2M+ citizens.
+                    </p>
+                    <ul class="highlights">
+                        <li>Developed longitudinal data model standardizing HL7, FHIR, CCDA formats</li>
+                        <li>Built ML models with ~97% accuracy for outbreak predictions</li>
+                        <li>Reduced data ingestion time by 28% with Spark ETL pipelines</li>
+                        <li>Deployed 40+ Tableau dashboards for health monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2023 – 2024</div>
+                    <h3 class="company">Intellihot</h3>
+                    <div class="role">Data Scientist</div>
+                    <p class="description">
+                        Built predictive systems for industrial equipment optimization.
+                    </p>
+                    <ul class="highlights">
+                        <li>Enhanced data accessibility by 97% through async APIs</li>
+                        <li>Reduced system downtime by 15% via predictive maintenance</li>
+                        <li>Created dashboards reducing reporting time by 95%</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2021 – 2023</div>
+                    <h3 class="company">Illinois Institute of Technology</h3>
+                    <div class="role">Graduate Teaching Assistant</div>
+                    <p class="description">
+                        Mentored 200+ students in Big Data Technologies (Hadoop, Spark, Kafka).
+                    </p>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2021</div>
+                    <h3 class="company">Caterpillar</h3>
+                    <div class="role">Data Scientist</div>
+                    <p class="description">
+                        Optimized marketing attribution and propensity models.
+                    </p>
+                    <ul class="highlights">
+                        <li>Boosted sales by 8% through Shapley-based attribution</li>
+                        <li>Improved ROC-AUC by 15% while reducing features by 50%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Featured Work</span>
+                <h2 class="section-title">Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project fade-in" onclick="openModal(0)">
+                    <div class="project-card-icon">🔍</div>
+                    <div class="project-number">01</div>
+                    <h3>Workplace Safety Monitoring</h3>
+                    <p>Real-time CV system achieving 99% mask detection and 93% pose accuracy, reducing violations by 15%.</p>
+                </div>
+
+                <div class="project fade-in" onclick="openModal(1)">
+                    <div class="project-card-icon">🔍</div>
+                    <div class="project-number">02</div>
+                    <h3>Google Ads Optimization</h3>
+                    <p>CatBoost models increasing impressions by 20%, traffic by 10%, and ROI by 15%.</p>
+                </div>
+
+                <div class="project fade-in" onclick="openModal(2)">
+                    <div class="project-card-icon">🔍</div>
+                    <div class="project-number">03</div>
+                    <h3>Custom Database System</h3>
+                    <p>Python DBMS with B+-tree indexing reducing query times by 30%.</p>
+                </div>
+
+                <div class="project fade-in" onclick="openModal(3)">
+                    <div class="project-card-icon">🔍</div>
+                    <div class="project-number">04</div>
+                    <h3>Customer Churn Prediction</h3>
+                    <p>ML model with 92% accuracy enabling retention strategies.</p>
+                </div>
+
+                <div class="project fade-in" onclick="openModal(4)">
+                    <div class="project-card-icon">🔍</div>
+                    <div class="project-number">05</div>
+                    <h3>Fraud Detection System</h3>
+                    <p>Real-time anomaly detection reducing false positives by 20%.</p>
+                </div>
+
+                <div class="project fade-in" onclick="openModal(5)">
+                    <div class="project-card-icon">🔍</div>
+                    <div class="project-number">06</div>
+                    <h3>Sales Forecasting</h3>
+                    <p>ARIMA and LSTM models predicting sales with 95% accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Technical Expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>Programming & Analytics</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('Python')">Python</div>
+                        <div class="skill-item" onclick="openSkillModal('R')">R</div>
+                        <div class="skill-item" onclick="openSkillModal('SQL')">SQL</div>
+                        <div class="skill-item" onclick="openSkillModal('NoSQL')">NoSQL</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Data Visualization</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('Tableau')">Tableau</div>
+                        <div class="skill-item" onclick="openSkillModal('Power BI')">Power BI</div>
+                        <div class="skill-item" onclick="openSkillModal('Streamlit')">Streamlit</div>
+                        <div class="skill-item" onclick="openSkillModal('Plotly')">Plotly</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Machine Learning & AI</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('Scikit-learn')">Scikit-learn</div>
+                        <div class="skill-item" onclick="openSkillModal('TensorFlow')">TensorFlow</div>
+                        <div class="skill-item" onclick="openSkillModal('Keras')">Keras</div>
+                        <div class="skill-item" onclick="openSkillModal('Deep Learning')">Deep Learning</div>
+                        <div class="skill-item" onclick="openSkillModal('Feature Engineering')">Feature Engineering</div>
+                        <div class="skill-item" onclick="openSkillModal('A/B Testing')">A/B Testing</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Big Data Technologies</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('Spark')">Apache Spark</div>
+                        <div class="skill-item" onclick="openSkillModal('Kafka')">Apache Kafka</div>
+                        <div class="skill-item" onclick="openSkillModal('Hadoop')">Hadoop</div>
+                        <div class="skill-item" onclick="openSkillModal('Hive')">Hive</div>
+                        <div class="skill-item" onclick="openSkillModal('DynamoDB')">DynamoDB</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('Azure')">Microsoft Azure</div>
+                        <div class="skill-item" onclick="openSkillModal('AWS')">AWS</div>
+                        <div class="skill-item" onclick="openSkillModal('GCP')">Google Cloud</div>
+                        <div class="skill-item" onclick="openSkillModal('Databricks')">Databricks</div>
+                        <div class="skill-item" onclick="openSkillModal('Snowflake')">Snowflake</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Data Engineering</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('ETL')">ETL Pipelines</div>
+                        <div class="skill-item" onclick="openSkillModal('Data Lakehouse')">Data Lakehouse</div>
+                        <div class="skill-item" onclick="openSkillModal('Azure Synapse')">Azure Synapse</div>
+                        <div class="skill-item" onclick="openSkillModal('Data Factory')">Azure Data Factory</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Business Tools</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('Salesforce')">Salesforce</div>
+                        <div class="skill-item" onclick="openSkillModal('Google Analytics')">Google Analytics 4</div>
+                        <div class="skill-item" onclick="openSkillModal('Excel')">Microsoft Excel</div>
+                        <div class="skill-item" onclick="openSkillModal('Thingworx')">Thingworx</div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>Standards & Frameworks</h3>
+                    <div class="skill-list">
+                        <div class="skill-item" onclick="openSkillModal('HL7/FHIR')">HL7/FHIR</div>
+                        <div class="skill-item" onclick="openSkillModal('USCDI')">USCDI Standards</div>
+                        <div class="skill-item" onclick="openSkillModal('Data Governance')">Data Governance</div>
+                        <div class="skill-item" onclick="openSkillModal('Agile')">Agile Methodology</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="contact-title">Let's Connect</h2>
+            <p class="contact-subtitle">Open to new opportunities and collaborations</p>
+            <div class="contact-links">
+                <a href="mailto:sivashanmugamsrihari@gmail.com" class="contact-link">Email</a>
+                <a href="https://www.linkedin.com/in/srihari17" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="https://github.com/srihari17" target="_blank" class="contact-link">GitHub</a>
+                <a href="tel:+13124789332" class="contact-link">Phone</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            Designed & Built by Sri Hari Sivashanmugam · Chicago, 2024
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <div class="modal-number" id="modalNumber"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description" id="modalDescription"></p>
+                <div class="modal-tech">
+                    <h4>Technologies Used</h4>
+                    <div class="tech-tags" id="modalTech"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Easter Eggs -->
+    <div class="secret-mode" onclick="togglePartyMode()" title="Click for surprise!">🎨</div>
+    <div class="party-controls" id="partyControls">
+        <button class="party-off-btn" onclick="togglePartyMode()">
+            <span>🎨</span>
+            <span>Turn Off Party Mode</span>
+        </button>
+    </div>
+    <div class="achievement" id="achievement">
+        <div class="achievement-title">🏆 Achievement Unlocked!</div>
+        <div id="achievementText"></div>
+    </div>
+    
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+        <span id="themeIcon">🌙</span>
+    </button>
+
+    <!-- Skill Detail Modal -->
+    <div class="skill-modal" id="skillModal">
+        <div class="skill-modal-content">
+            <div class="skill-modal-header">
+                <button class="skill-modal-close" onclick="closeSkillModal()">×</button>
+                <h2 class="skill-modal-title" id="skillModalTitle"></h2>
+                <p class="skill-modal-subtitle" id="skillModalSubtitle"></p>
+            </div>
+            <div class="skill-modal-body" id="skillModalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // Skill data with usage across experience, education, and projects
+        const skillsData = {
+            'Python': {
+                subtitle: 'Primary programming language for data science and ML',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Built ML models, ETL pipelines, and automated data quality checks' },
+                    { title: 'Intellihot', desc: 'Developed asynchronous APIs and predictive maintenance models' },
+                    { title: 'Caterpillar', desc: 'Created marketing attribution models and propensity scoring' }
+                ],
+                education: [
+                    { title: 'Illinois Institute of Technology', desc: 'Taught Python for Big Data Technologies to 200+ students' },
+                    { title: 'Master of Data Science', desc: 'Core language for neural networks, data mining, and statistical learning' }
+                ],
+                projects: [
+                    { title: 'Workplace Safety Monitoring', desc: 'Computer vision system with MobileNet and Blazepose' },
+                    { title: 'Custom Database System', desc: 'Built complete DBMS with B+-tree indexing' },
+                    { title: 'Fraud Detection', desc: 'Anomaly detection using Scikit-learn' }
+                ]
+            },
+            'SQL': {
+                subtitle: 'Database querying and data manipulation expert',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Used Azure SQL Database for data storage and queries' },
+                    { title: 'Intellihot', desc: 'Database design and optimization for IoT data' },
+                    { title: 'Caterpillar', desc: 'Complex queries for marketing analytics' }
+                ],
+                education: [
+                    { title: 'Database Management', desc: 'Advanced SQL, query optimization, and database design' }
+                ],
+                projects: [
+                    { title: 'Custom Database System', desc: 'Implemented SQL-like query language' }
+                ]
+            },
+            'Tableau': {
+                subtitle: 'Data visualization and dashboard creation',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Deployed 40+ dashboards for community health monitoring' },
+                    { title: 'Illinois Institute of Technology', desc: 'Taught data visualization best practices' }
+                ],
+                education: [
+                    { title: 'Data Visualization', desc: 'Advanced dashboard design and storytelling with data' }
+                ],
+                projects: []
+            },
+            'Spark': {
+                subtitle: 'Big data processing and analytics',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Engineered Spark-based ETL pipelines reducing ingestion time by 28%' },
+                    { title: 'Illinois Institute of Technology', desc: 'Taught Spark for large-scale data processing' }
+                ],
+                education: [
+                    { title: 'Big Data Technologies', desc: 'Spark fundamentals, RDDs, DataFrames, and streaming' }
+                ],
+                projects: []
+            },
+            'Azure': {
+                subtitle: 'Cloud infrastructure and services',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Designed data lakehouse using Medallion Architecture in Azure' },
+                    { title: 'Intellihot', desc: 'Deployed ML models and APIs on Azure cloud' }
+                ],
+                education: [
+                    { title: 'Cloud Computing', desc: 'Azure services, architecture, and deployment strategies' }
+                ],
+                projects: []
+            },
+            'Scikit-learn': {
+                subtitle: 'Machine learning model development',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Built ML models with ~97% accuracy' },
+                    { title: 'Intellihot', desc: 'Integrated ML models for predictive maintenance' },
+                    { title: 'Caterpillar', desc: 'Developed propensity models and optimized features' }
+                ],
+                education: [
+                    { title: 'Statistical Learning', desc: 'Supervised and unsupervised learning algorithms' }
+                ],
+                projects: [
+                    { title: 'Customer Churn Prediction', desc: '92% accuracy churn prediction model' },
+                    { title: 'Fraud Detection', desc: 'Anomaly detection reducing false positives by 20%' }
+                ]
+            },
+            'TensorFlow': {
+                subtitle: 'Deep learning and neural networks',
+                education: [
+                    { title: 'Neural Networks', desc: 'Deep learning architectures and implementation' }
+                ],
+                projects: [
+                    { title: 'Workplace Safety Monitoring', desc: 'MobileNet for mask detection' },
+                    { title: 'Sales Forecasting', desc: 'LSTM models for time series prediction' }
+                ]
+            },
+            'Power BI': {
+                subtitle: 'Business intelligence and reporting',
+                experience: [
+                    { title: 'Intellihot', desc: 'Designed PowerBI dashboards reducing reporting time by 95%' },
+                    { title: 'Caterpillar', desc: 'Created dashboards for marketing performance tracking' }
+                ],
+                projects: []
+            },
+            'Kafka': {
+                subtitle: 'Real-time data streaming',
+                education: [
+                    { title: 'Big Data Technologies', desc: 'Kafka streaming, topics, and consumers' },
+                    { title: 'Teaching Assistant', desc: 'Taught Kafka to 200+ students' }
+                ],
+                projects: []
+            },
+            'Databricks': {
+                subtitle: 'Unified analytics platform',
+                experience: [
+                    { title: 'Chicago Dept. of Public Health', desc: 'Used Databricks for scalable data processing' }
+                ],
+                education: [
+                    { title: 'Big Data Technologies', desc: 'Databricks for collaborative data science' }
+                ],
+                projects: []
+            }
+        };
+
+        // Default skill data for skills not in the map
+        const defaultSkillData = {
+            subtitle: 'Technology used across multiple projects',
+            experience: [],
+            education: [{ title: 'Relevant Coursework', desc: 'Learned and applied in academic projects' }],
+            projects: []
+        };
+
+        // Open skill modal
+        function openSkillModal(skillName) {
+            const data = skillsData[skillName] || defaultSkillData;
+            document.getElementById('skillModalTitle').textContent = skillName;
+            document.getElementById('skillModalSubtitle').textContent = data.subtitle;
+            
+            const body = document.getElementById('skillModalBody');
+            body.innerHTML = '';
+            
+            // Experience section
+            if (data.experience && data.experience.length > 0) {
+                const expSection = document.createElement('div');
+                expSection.className = 'skill-usage-section';
+                expSection.innerHTML = `
+                    <h3 class="skill-section-title">
+                        <span class="skill-section-icon">💼</span>
+                        Experience
+                    </h3>
+                    <ul class="skill-usage-list">
+                        ${data.experience.map(item => `
+                            <li class="skill-usage-item">
+                                <div class="skill-usage-title">${item.title}</div>
+                                <div class="skill-usage-desc">${item.desc}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                body.appendChild(expSection);
+            }
+            
+            // Education section
+            if (data.education && data.education.length > 0) {
+                const eduSection = document.createElement('div');
+                eduSection.className = 'skill-usage-section';
+                eduSection.innerHTML = `
+                    <h3 class="skill-section-title">
+                        <span class="skill-section-icon">🎓</span>
+                        Education
+                    </h3>
+                    <ul class="skill-usage-list">
+                        ${data.education.map(item => `
+                            <li class="skill-usage-item">
+                                <div class="skill-usage-title">${item.title}</div>
+                                <div class="skill-usage-desc">${item.desc}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                body.appendChild(eduSection);
+            }
+            
+            // Projects section
+            if (data.projects && data.projects.length > 0) {
+                const projSection = document.createElement('div');
+                projSection.className = 'skill-usage-section';
+                projSection.innerHTML = `
+                    <h3 class="skill-section-title">
+                        <span class="skill-section-icon">🚀</span>
+                        Projects
+                    </h3>
+                    <ul class="skill-usage-list">
+                        ${data.projects.map(item => `
+                            <li class="skill-usage-item">
+                                <div class="skill-usage-title">${item.title}</div>
+                                <div class="skill-usage-desc">${item.desc}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+                body.appendChild(projSection);
+            }
+            
+            document.getElementById('skillModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close skill modal
+        function closeSkillModal() {
+            document.getElementById('skillModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on outside click
+        document.getElementById('skillModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSkillModal();
+            }
+        });
+
+        // Project data
+        const projects = [
+            {
+                number: "01",
+                title: "Workplace Safety Monitoring System",
+                description: "Designed a comprehensive real-time computer vision solution using MobileNet and Blazepose for workplace safety compliance. The system continuously monitors employees for proper mask usage and correct posture during work activities. Achieved 99% mask detection accuracy and 93% pose detection accuracy through optimized deep learning models. Implementation resulted in a 15% reduction in safety violations across monitored facilities. The solution processes video feeds in real-time with minimal latency, providing instant alerts to supervisors when violations are detected.",
+                tech: ["Python", "TensorFlow", "OpenCV", "MobileNet", "Blazepose", "Computer Vision"]
+            },
+            {
+                number: "02",
+                title: "Google Ads Optimization Engine",
+                description: "Developed an advanced predictive modeling system using CatBoost gradient boosting to optimize digital advertising campaigns. The engine analyzes historical campaign data, user behavior patterns, and market trends to predict optimal ad placement and bidding strategies. Successfully increased ad impressions by 20% while reducing cost per click. Boosted website traffic by 10% through improved targeting and audience segmentation. Enhanced overall ROI by 15% through intelligent budget allocation and keyword optimization. The system continuously learns and adapts to changing market conditions.",
+                tech: ["Python", "CatBoost", "Scikit-learn", "Pandas", "Google Ads API", "ML Optimization"]
+            },
+            {
+                number: "03",
+                title: "Custom Database Management System",
+                description: "Engineered a high-performance custom database management system from scratch in Python, implementing advanced B+-tree indexing for efficient data retrieval. The system supports CRUD operations, transaction management, and concurrent access control. Achieved a 30% reduction in query response times compared to traditional implementations through optimized indexing algorithms. Designed for large-scale applications handling millions of records with consistent performance. Includes query optimization, index management, and backup/recovery mechanisms.",
+                tech: ["Python", "Data Structures", "B+ Tree", "Algorithms", "Database Design"]
+            },
+            {
+                number: "04",
+                title: "Customer Churn Prediction Model",
+                description: "Built a sophisticated machine learning model to predict customer churn with 92% accuracy, enabling proactive retention strategies. The model analyzes customer behavior patterns, transaction history, engagement metrics, and demographic data to identify at-risk customers. Implemented feature engineering techniques to extract meaningful patterns from raw data. The prediction system helped increase customer loyalty by 10% through targeted interventions and personalized retention campaigns. Includes automated monitoring and regular model retraining to maintain accuracy.",
+                tech: ["Python", "Scikit-learn", "XGBoost", "Feature Engineering", "Classification Models"]
+            },
+            {
+                number: "05",
+                title: "Fraud Detection System",
+                description: "Implemented a real-time anomaly detection system using unsupervised learning techniques to identify fraudulent transactions. The system analyzes transaction patterns, user behavior, and contextual data to detect suspicious activities. Reduced false positive rate by 20% through advanced feature engineering and model tuning, significantly improving operational efficiency. Prevented potential financial losses by catching fraudulent transactions before completion. The system processes thousands of transactions per second with minimal latency, providing instant risk scores and alerts.",
+                tech: ["Python", "Scikit-learn", "Isolation Forest", "Anomaly Detection", "Real-time Processing"]
+            },
+            {
+                number: "06",
+                title: "Sales Forecasting with Time Series Analysis",
+                description: "Designed and implemented a comprehensive sales forecasting system using both traditional ARIMA and deep learning LSTM models. The hybrid approach captures both statistical patterns and complex non-linear relationships in historical sales data. Achieved 95% forecasting accuracy for monthly sales predictions, enabling better inventory management and resource allocation. The system considers multiple factors including seasonality, trends, promotions, and external economic indicators. Supported data-driven decision making for supply chain optimization and demand planning.",
+                tech: ["Python", "ARIMA", "LSTM", "TensorFlow", "Time Series Analysis", "Statsmodels"]
+            }
+        ];
+
+        // Open modal
+        function openModal(index) {
+            const project = projects[index];
+            document.getElementById('modalNumber').textContent = project.number;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalDescription').textContent = project.description;
+            
+            const techContainer = document.getElementById('modalTech');
+            techContainer.innerHTML = '';
+            project.tech.forEach(tech => {
+                const tag = document.createElement('span');
+                tag.className = 'tech-tag';
+                tag.textContent = tech;
+                techContainer.appendChild(tag);
+            });
+            
+            document.getElementById('projectModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeSkillModal();
+            }
+        });
+
+        // Easter Egg - Konami Code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join('') === konamiSequence.join('')) {
+                document.getElementById('easterEgg').classList.add('show');
+            }
+        });
+
+        // Trigger Easter Egg
+        function triggerEasterEgg() {
+            createConfetti();
+            alert('🎉 Congratulations! You found the secret! 🎉\n\nYou discovered the Konami Code easter egg!\n\nAs a data scientist, I appreciate those who explore and experiment!');
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const facts = [
+                '🎓 Master of Data Science from IIT',
+                '📊 Served 3.2M+ citizens',
+                '🎯 97% model accuracy achieved',
+                '📈 40+ dashboards built',
+                '🚀 Reduced ingestion time by 28%',
+                '💼 Data Scientist in Chicago',
+                '🔬 Machine Learning Expert',
+                '☁️ Azure & AWS Certified',
+                '🐍 Python Enthusiast',
+                '📉 Time Series Specialist',
+                '🎨 Tableau Dashboard Creator',
+                '⚡ Spark & Kafka Expert',
+                '🏥 Public Health Tech Leader',
+                '🎓 Teaching Assistant for 200+ students',
+                '📱 Power BI Pro',
+                '🤖 TensorFlow Developer',
+                '🎯 Feature Engineering Master',
+                '📊 A/B Testing Expert',
+                '🔍 Fraud Detection Specialist',
+                '💡 Innovation Driver',
+                '🌟 Problem Solver',
+                '📚 Continuous Learner',
+                '🎪 Easter Egg Creator'
+            ];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.textContent = facts[Math.floor(Math.random() * facts.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 200);
+            }
+        }
+
+        // Party Mode Toggle
+        let partyMode = false;
+        function togglePartyMode() {
+            partyMode = !partyMode;
+            document.body.classList.toggle('party-mode');
+            const controls = document.getElementById('partyControls');
+            
+            if (partyMode) {
+                createConfetti();
+                controls.classList.add('active');
+                showAchievement('Party Animal', 'You activated party mode! 🎊');
+            } else {
+                controls.classList.remove('active');
+            }
+        }
+
+        // Double click on logo for surprise
+        let logoClicks = 0;
+        document.querySelector('.logo').addEventListener('click', function() {
+            logoClicks++;
+            if (logoClicks === 1) {
+                setTimeout(() => { logoClicks = 0; }, 500);
+            } else if (logoClicks === 2) {
+                this.style.transform = 'rotate(360deg)';
+                this.style.transition = 'transform 1s ease';
+                setTimeout(() => {
+                    this.style.transform = 'rotate(0deg)';
+                }, 1000);
+                createConfetti();
+                showAchievement('Curious Mind', 'You found the spinning logo! 🌟');
+                logoClicks = 0;
+            }
+        });
+
+        // Show achievement notification
+        function showAchievement(title, text) {
+            const achievement = document.getElementById('achievement');
+            const achievementText = document.getElementById('achievementText');
+            achievement.querySelector('.achievement-title').textContent = '🏆 ' + title;
+            achievementText.textContent = text;
+            achievement.classList.add('show');
+            
+            setTimeout(() => {
+                achievement.classList.remove('show');
+            }, 4000);
+        }
+
+        // Track scrolling achievement
+        let hasScrolledToBottom = false;
+        window.addEventListener('scroll', () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            
+            if (scrolled >= scrollable - 50 && !hasScrolledToBottom) {
+                hasScrolledToBottom = true;
+                showAchievement('Explorer', 'You scrolled through everything! 📜');
+            }
+        });
+
+        // Sparkle effect on stat hover
+        document.querySelectorAll('.stat').forEach(stat => {
+            stat.addEventListener('mouseenter', function(e) {
+                createSparkle(e.pageX, e.pageY);
+            });
+        });
+
+        function createSparkle(x, y) {
+            const sparkles = ['✨', '⭐', '💫', '🌟'];
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+
+        // Count project views achievement
+        let projectViews = 0;
+        const originalOpenModal = window.openModal;
+        window.openModal = function(index) {
+            originalOpenModal(index);
+            projectViews++;
+            if (projectViews === 3) {
+                setTimeout(() => {
+                    showAchievement('Project Enthusiast', 'You viewed 3 projects! Keep exploring! 🚀');
+                }, 500);
+            }
+            if (projectViews === 6) {
+                setTimeout(() => {
+                    showAchievement('Completionist', 'You viewed all projects! Amazing! 🌈');
+                }, 500);
+            }
+        };
+
+        // Secret message in console
+        console.log('%c👋 Hello, curious developer!', 'font-size: 20px; font-weight: bold; color: #8FA998;');
+        console.log('%c🎯 You found the console! Here\'s a secret:', 'font-size: 14px; color: #5F7367;');
+        console.log('%c💡 Type "revealSecrets()" in the console for something special!', 'font-size: 12px; color: #6B7C85;');
+        
+        // Secret console command
+        window.revealSecrets = function() {
+            console.log('%c🎊 SECRETS REVEALED! 🎊', 'font-size: 24px; font-weight: bold; color: #B8957A;');
+            console.log('%c🔑 Easter Eggs:', 'font-size: 16px; font-weight: bold; color: #8FA998;');
+            console.log('1. Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A');
+            console.log('2. Click the paint palette on the left');
+            console.log('3. Double-click the logo');
+            console.log('4. Hover over the stats');
+            console.log('5. Scroll to the bottom');
+            console.log('6. View all projects');
+            console.log('%c✨ You\'re a true explorer!', 'font-size: 14px; color: #5F7367;');
+            createConfetti();
+            showAchievement('Master Detective', 'You found ALL the secrets! 🕵️');
+        };
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeIcon');
+            const isDark = document.body.classList.contains('dark-mode');
+            icon.textContent = isDark ? '☀️' : '🌙';
+            
+            // Save preference
+            localStorage.setItem('darkMode', isDark);
+            
+            if (isDark) {
+                showAchievement('Night Owl', 'Dark mode activated! 🌙');
+            }
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('themeIcon').textContent = '☀️';
+        }
+
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.remove('active');
+        }
+
+        // Scroll progress
+        window.addEventListener('scroll', () => {
+            const progress = document.querySelector('.scroll-progress');
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const width = (scrolled / scrollable) * 100;
+            progress.style.width = width + '%';
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
