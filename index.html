@@ -2107,48 +2107,7 @@
             alert('🎉 Congratulations! You found the secret! 🎉\n\nYou discovered the Konami Code easter egg!\n\nAs a data scientist, I appreciate those who explore and experiment!');
         }
 
-        // Create confetti
-        function createConfetti() {
-            const facts = [
-                '🎓 Master of Data Science from IIT',
-                '📊 Served 3.2M+ citizens',
-                '🎯 97% model accuracy achieved',
-                '📈 40+ dashboards built',
-                '🚀 Reduced ingestion time by 28%',
-                '💼 Data Scientist in Chicago',
-                '🔬 Machine Learning Expert',
-                '☁️ Azure & AWS Certified',
-                '🐍 Python Enthusiast',
-                '📉 Time Series Specialist',
-                '🎨 Tableau Dashboard Creator',
-                '⚡ Spark & Kafka Expert',
-                '🏥 Public Health Tech Leader',
-                '🎓 Teaching Assistant for 200+ students',
-                '📱 Power BI Pro',
-                '🤖 TensorFlow Developer',
-                '🎯 Feature Engineering Master',
-                '📊 A/B Testing Expert',
-                '🔍 Fraud Detection Specialist',
-                '💡 Innovation Driver',
-                '🌟 Problem Solver',
-                '📚 Continuous Learner',
-                '🎪 Easter Egg Creator'
-            ];
-            
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + '%';
-                    confetti.textContent = facts[Math.floor(Math.random() * facts.length)];
-                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
-                    confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => confetti.remove(), 5000);
-                }, i * 200);
-            }
-        }
+        
 
         // Party Mode Toggle
         let partyMode = false;
