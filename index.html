@@ -1505,123 +1505,279 @@
 
     <script>
         // Skill data with usage across experience, education, and projects
-        const skillsData = {
+       const skillsData = {
+            // ---------------- Programming & Analytics ----------------
             'Python': {
-                subtitle: 'Primary programming language for data science and ML',
+                subtitle: 'Primary programming language for data engineering, ML, and analytics',
                 experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Built ML models, ETL pipelines, and automated data quality checks' },
-                    { title: 'Intellihot', desc: 'Developed asynchronous APIs and predictive maintenance models' },
-                    { title: 'Caterpillar', desc: 'Created marketing attribution models and propensity scoring' }
+                { title: 'Chicago Dept. of Public Health', desc: 'Orchestrated Spark ETL pipelines streaming 100M+ records daily and automated data validation with Python' },
+                { title: 'Intellihot', desc: 'Developed async APIs and ML models for predictive maintenance using Python' },
+                { title: 'Caterpillar', desc: 'Built marketing attribution and propensity models improving ROC-AUC by 15%' }
                 ],
                 education: [
-                    { title: 'Illinois Institute of Technology', desc: 'Taught Python for Big Data Technologies to 200+ students' },
-                    { title: 'Master of Data Science', desc: 'Core language for neural networks, data mining, and statistical learning' }
+                { title: 'Illinois Institute of Technology', desc: 'Taught Python for Big Data Technologies to 200+ graduate students' },
+                { title: 'Master of Data Science', desc: 'Applied Python for neural networks, data mining, and statistical learning' }
                 ],
                 projects: [
-                    { title: 'Workplace Safety Monitoring', desc: 'Computer vision system with MobileNet and Blazepose' },
-                    { title: 'Custom Database System', desc: 'Built complete DBMS with B+-tree indexing' },
-                    { title: 'Fraud Detection', desc: 'Anomaly detection using Scikit-learn' }
+                { title: 'Workplace Safety Monitoring', desc: 'Computer vision system with MobileNet and BlazePose achieving 99% accuracy' },
+                { title: 'Custom Database System', desc: 'Built DBMS with B+-tree indexing and optimized query execution' }
+                ]
+            },
+            'R': {
+                subtitle: 'Statistical analysis, visualization, and exploratory data modeling',
+                education: [
+                { title: 'Statistical Learning', desc: 'Applied regression, classification, and clustering methods in R' }
+                ],
+                projects: [
+                { title: 'Public Health Trend Analysis', desc: 'Analyzed disease trends using ggplot2 and tidyr for visual analytics' }
                 ]
             },
             'SQL': {
-                subtitle: 'Database querying and data manipulation expert',
+                subtitle: 'Advanced querying, modeling, and optimization across analytical workloads',
                 experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Used Azure SQL Database for data storage and queries' },
-                    { title: 'Intellihot', desc: 'Database design and optimization for IoT data' },
-                    { title: 'Caterpillar', desc: 'Complex queries for marketing analytics' }
+                { title: 'Chicago Dept. of Public Health', desc: 'Built complex SQL queries in Azure SQL for public health surveillance' },
+                { title: 'Intellihot', desc: 'Designed IoT data schemas and optimized query performance' },
+                { title: 'Caterpillar', desc: 'Developed analytical queries supporting 8% increase in sales' }
                 ],
                 education: [
-                    { title: 'Database Management', desc: 'Advanced SQL, query optimization, and database design' }
+                { title: 'Database Management', desc: 'Mastered query optimization, indexing, and relational design' }
                 ],
                 projects: [
-                    { title: 'Custom Database System', desc: 'Implemented SQL-like query language' }
+                { title: 'Custom DBMS', desc: 'Implemented SQL-like language with indexing logic' }
                 ]
             },
+            'NoSQL': {
+                subtitle: 'Schema-flexible storage and distributed data systems',
+                education: [
+                { title: 'Big Data Technologies', desc: 'Used DynamoDB and MongoDB for large unstructured datasets' }
+                ],
+                projects: []
+            },
+
+            // ---------------- Data Visualization ----------------
             'Tableau': {
-                subtitle: 'Data visualization and dashboard creation',
+                subtitle: 'Interactive data storytelling and executive dashboards',
                 experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Deployed 40+ dashboards for community health monitoring' },
-                    { title: 'Illinois Institute of Technology', desc: 'Taught data visualization best practices' }
+                { title: 'Chicago Dept. of Public Health', desc: 'Developed 40+ Tableau dashboards for community health monitoring' },
+                { title: 'Illinois Institute of Technology', desc: 'Taught dashboarding and visualization best practices' }
                 ],
                 education: [
-                    { title: 'Data Visualization', desc: 'Advanced dashboard design and storytelling with data' }
-                ],
-                projects: []
-            },
-            'Spark': {
-                subtitle: 'Big data processing and analytics',
-                experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Engineered Spark-based ETL pipelines reducing ingestion time by 28%' },
-                    { title: 'Illinois Institute of Technology', desc: 'Taught Spark for large-scale data processing' }
-                ],
-                education: [
-                    { title: 'Big Data Technologies', desc: 'Spark fundamentals, RDDs, DataFrames, and streaming' }
-                ],
-                projects: []
-            },
-            'Azure': {
-                subtitle: 'Cloud infrastructure and services',
-                experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Designed data lakehouse using Medallion Architecture in Azure' },
-                    { title: 'Intellihot', desc: 'Deployed ML models and APIs on Azure cloud' }
-                ],
-                education: [
-                    { title: 'Cloud Computing', desc: 'Azure services, architecture, and deployment strategies' }
-                ],
-                projects: []
-            },
-            'Scikit-learn': {
-                subtitle: 'Machine learning model development',
-                experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Built ML models with ~97% accuracy' },
-                    { title: 'Intellihot', desc: 'Integrated ML models for predictive maintenance' },
-                    { title: 'Caterpillar', desc: 'Developed propensity models and optimized features' }
-                ],
-                education: [
-                    { title: 'Statistical Learning', desc: 'Supervised and unsupervised learning algorithms' }
-                ],
-                projects: [
-                    { title: 'Customer Churn Prediction', desc: '92% accuracy churn prediction model' },
-                    { title: 'Fraud Detection', desc: 'Anomaly detection reducing false positives by 20%' }
-                ]
-            },
-            'TensorFlow': {
-                subtitle: 'Deep learning and neural networks',
-                education: [
-                    { title: 'Neural Networks', desc: 'Deep learning architectures and implementation' }
-                ],
-                projects: [
-                    { title: 'Workplace Safety Monitoring', desc: 'MobileNet for mask detection' },
-                    { title: 'Sales Forecasting', desc: 'LSTM models for time series prediction' }
+                { title: 'Data Visualization', desc: 'Advanced dashboard design and KPI storytelling' }
                 ]
             },
             'Power BI': {
-                subtitle: 'Business intelligence and reporting',
+                subtitle: 'Business intelligence reporting and visualization',
                 experience: [
-                    { title: 'Intellihot', desc: 'Designed PowerBI dashboards reducing reporting time by 95%' },
-                    { title: 'Caterpillar', desc: 'Created dashboards for marketing performance tracking' }
+                { title: 'Intellihot', desc: 'Created Power BI dashboards reducing manual reporting by 95%' },
+                { title: 'Caterpillar', desc: 'Built marketing analytics dashboards for leadership insights' }
+                ]
+            },
+            'Streamlit': {
+                subtitle: 'Interactive web apps for machine learning and analytics',
+                projects: [
+                { title: 'Predictive Maintenance App', desc: 'Deployed ML model visualization using Streamlit and Python' }
+                ]
+            },
+            'Plotly': {
+                subtitle: 'Data visualization and analytical dashboards in Python',
+                projects: [
+                { title: 'Energy Efficiency Dashboard', desc: 'Interactive Plotly Dash app for IoT analytics' }
+                ]
+            },
+
+            // ---------------- Machine Learning & AI ----------------
+            'Scikit-learn': {
+                subtitle: 'End-to-end machine learning model development and evaluation',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Developed ML models improving outbreak prediction accuracy' },
+                { title: 'Intellihot', desc: 'Integrated predictive models improving system reliability by 12%' },
+                { title: 'Caterpillar', desc: 'Optimized propensity models reducing feature count by 50%' }
                 ],
-                projects: []
+                projects: [
+                { title: 'Customer Churn Prediction', desc: '92% accuracy churn classifier with feature importance analysis' },
+                { title: 'Fraud Detection', desc: 'Reduced false positives by 20% using anomaly detection' }
+                ]
+            },
+            'TensorFlow': {
+                subtitle: 'Deep learning model design and deployment',
+                education: [
+                { title: 'Neural Networks', desc: 'Implemented CNN and LSTM architectures in TensorFlow' }
+                ],
+                projects: [
+                { title: 'Workplace Safety Monitoring', desc: 'Used MobileNet for mask detection with 99% accuracy' },
+                { title: 'Sales Forecasting', desc: 'Built LSTM models predicting demand with 95% accuracy' }
+                ]
+            },
+            'Keras': {
+                subtitle: 'High-level neural network API for TensorFlow',
+                projects: [
+                { title: 'Image Classification', desc: 'Trained CNNs for workplace safety images' }
+                ]
+            },
+            'Deep Learning': {
+                subtitle: 'Neural network architectures for computer vision and forecasting',
+                projects: [
+                { title: 'Safety Monitoring System', desc: 'Combined CNN and pose estimation models for compliance detection' }
+                ]
+            },
+            'Feature Engineering': {
+                subtitle: 'Transforming raw data into high-quality ML inputs',
+                experience: [
+                { title: 'Caterpillar', desc: 'Improved model AUC by 15% via targeted feature selection' }
+                ]
+            },
+            'A/B Testing': {
+                subtitle: 'Experimental design and statistical model validation',
+                projects: [
+                { title: 'Marketing Optimization', desc: 'Evaluated impact of email campaigns on conversion using t-tests' }
+                ]
+            },
+
+            // ---------------- Big Data Technologies ----------------
+            'Spark': {
+                subtitle: 'Distributed data processing and large-scale analytics',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Engineered Spark ETL pipelines reducing ingestion time by 28%' },
+                { title: 'Illinois Institute of Technology', desc: 'Taught Spark for distributed data processing' }
+                ]
             },
             'Kafka': {
-                subtitle: 'Real-time data streaming',
+                subtitle: 'Real-time data streaming and messaging systems',
                 education: [
-                    { title: 'Big Data Technologies', desc: 'Kafka streaming, topics, and consumers' },
-                    { title: 'Teaching Assistant', desc: 'Taught Kafka to 200+ students' }
-                ],
-                projects: []
+                { title: 'Big Data Technologies', desc: 'Covered Kafka topics, producers, and consumers' }
+                ]
+            },
+            'Hadoop': {
+                subtitle: 'Distributed file storage and MapReduce framework',
+                education: [
+                { title: 'Big Data Technologies', desc: 'Implemented HDFS and MapReduce jobs for batch analytics' }
+                ]
+            },
+            'Hive': {
+                subtitle: 'SQL-like querying on large data lakes',
+                education: [
+                { title: 'Big Data Technologies', desc: 'Learned partitioning and optimization in HiveQL' }
+                ]
+            },
+            'DynamoDB': {
+                subtitle: 'NoSQL database for scalable key-value access',
+                education: [
+                { title: 'Cloud Computing', desc: 'Implemented data storage solutions using DynamoDB' }
+                ]
+            },
+
+            // ---------------- Cloud Platforms ----------------
+            'Azure': {
+                subtitle: 'End-to-end cloud ecosystem for scalable data infrastructure',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Designed Azure data lakehouse using Medallion Architecture' },
+                { title: 'Intellihot', desc: 'Deployed ML models and APIs using Azure services' }
+                ]
+            },
+            'AWS': {
+                subtitle: 'Cloud platform for compute and analytics services',
+                experience: [
+                { title: 'Illinois Institute of Technology', desc: 'Guided students on EMR, S3, and EC2 for big data projects' }
+                ]
+            },
+            'GCP': {
+                subtitle: 'Google Cloud ecosystem for data engineering and ML',
+                experience: [
+                { title: 'Caterpillar', desc: 'Used GCP Data Studio for marketing analytics visualization' }
+                ]
             },
             'Databricks': {
-                subtitle: 'Unified analytics platform',
+                subtitle: 'Collaborative analytics and scalable compute platform',
                 experience: [
-                    { title: 'Chicago Dept. of Public Health', desc: 'Used Databricks for scalable data processing' }
-                ],
-                education: [
-                    { title: 'Big Data Technologies', desc: 'Databricks for collaborative data science' }
-                ],
-                projects: []
+                { title: 'Chicago Dept. of Public Health', desc: 'Used Databricks for real-time ETL and analytics pipelines' }
+                ]
+            },
+            'Snowflake': {
+                subtitle: 'Cloud data warehouse for scalable analytics',
+                projects: [
+                { title: 'Data Modernization Prototype', desc: 'Tested cross-cloud ETL workflows between Azure and Snowflake' }
+                ]
+            },
+
+            // ---------------- Data Engineering ----------------
+            'ETL': {
+                subtitle: 'Extract, Transform, Load pipeline design and automation',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Orchestrated Spark ETL pipelines streaming 100M+ records/day' }
+                ]
+            },
+            'Data Lakehouse': {
+                subtitle: 'Unified architecture for structured and unstructured data',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Built Medallion Architecture combining data lake and warehouse layers' }
+                ]
+            },
+            'Azure Synapse': {
+                subtitle: 'Analytics service for large-scale data warehousing',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Integrated Synapse for faster querying and analytical insights' }
+                ]
+            },
+            'Data Factory': {
+                subtitle: 'Pipeline orchestration and scheduling tool in Azure',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Automated ETL workflows using ADF for longitudinal data pipelines' }
+                ]
+            },
+
+            // ---------------- Business Tools ----------------
+            'Salesforce': {
+                subtitle: 'CRM and data integration for public health workflows',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Enhanced cross-functional data flows using Salesforce connectors' }
+                ]
+            },
+            'Google Analytics': {
+                subtitle: 'Web and marketing performance tracking',
+                experience: [
+                { title: 'Onebit Inc.', desc: 'Improved conversions by 12% using GA4-based strategy optimization' }
+                ]
+            },
+            'Excel': {
+                subtitle: 'Data cleaning, analysis, and KPI reporting',
+                experience: [
+                { title: 'Caterpillar', desc: 'Used Excel for data modeling and financial analytics reporting' }
+                ]
+            },
+            'Thingworx': {
+                subtitle: 'IoT platform for industrial data insights',
+                experience: [
+                { title: 'Intellihot', desc: 'Integrated IoT telemetry for predictive performance monitoring' }
+                ]
+            },
+
+            // ---------------- Standards & Frameworks ----------------
+            'HL7/FHIR': {
+                subtitle: 'Healthcare data interoperability standards',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Standardized HL7, FHIR, and CCDA data models for cross-agency integration' }
+                ]
+            },
+            'USCDI': {
+                subtitle: 'U.S. Core Data for Interoperability standards (v4)',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Modeled longitudinal health records aligned with USCDI v4 standards' }
+                ]
+            },
+            'Data Governance': {
+                subtitle: 'Ensuring data quality, privacy, and compliance',
+                experience: [
+                { title: 'Chicago Dept. of Public Health', desc: 'Implemented Azure Purview and data lineage tracking for transparency' }
+                ]
+            },
+            'Agile': {
+                subtitle: 'Iterative development and cross-functional collaboration',
+                experience: [
+                { title: 'All Roles', desc: 'Collaborated in agile sprints across engineering, analytics, and public health teams' }
+                ]
             }
-        };
+            };
+
 
         // Default skill data for skills not in the map
         const defaultSkillData = {
