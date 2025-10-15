@@ -2088,16 +2088,23 @@
             }
         });
 
-        // Easter Egg - Konami Code
+       // Easter Egg - Konami Code
         let konamiCode = [];
-        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        const konamiSequence = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+            'b', 'a'
+        ];
 
         document.addEventListener('keydown', function(e) {
             konamiCode.push(e.key);
+            // keep last 10 keys only
             konamiCode = konamiCode.slice(-10);
-            
-            if (konamiCode.join('') === konamiSequence.join('')) {
-                document.getElementById('easterEgg').classList.add('show');
+
+            // check sequence match
+            if (konamiCode.length === konamiSequence.length &&
+                konamiCode.every((val, index) => val === konamiSequence[index])) {
+            triggerEasterEgg();
             }
         });
 
@@ -2105,9 +2112,12 @@
         function triggerEasterEgg() {
             createConfetti();
             alert('🎉 Congratulations! You found the secret! 🎉\n\nYou discovered the Konami Code easter egg!\n\nAs a data scientist, I appreciate those who explore and experiment!');
+            
+            // Optional: show hidden element if exists
+            const egg = document.getElementById('easterEgg');
+            if (egg) egg.classList.add('show');
         }
-
-        
+    
 
         // Party Mode Toggle
         let partyMode = false;
