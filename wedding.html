@@ -669,11 +669,11 @@ const bgAudio = document.getElementById('bgAudio');
 function startMusic() {
   // If you have the audio file, set it here:
   bgAudio.src = 'sada-nannu.mp3';
-  bgAudio.volume = 0.4;
+  bgAudio.volume = 0.1;
   bgAudio.play().then(() => { musicPlaying = true; }).catch(() => synthMusic());
   
   // For now, we use synthesized ambient tones that feel devotional
-  // synthMusic();
+  synthMusic();
 }
 
 function synthMusic() {
