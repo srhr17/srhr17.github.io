@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sri Hari & Sakthi Sobiya</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
+:root {
+  --blush:     #f7ddd5;
+  --rose:      #e0a090;
+  --dusty:     #c4725f;
+  --gold:      #c9a96e;
+  --gold-pale: #ecddb8;
+  --champagne: #faf2e4;
+  --cream:     #fdf9f5;
+  --petal:     #fdeee8;
+  --deep:      #4a2c22;
+  --deep2:     #3a1f15;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:#1a0a05;
+  color:var(--deep);
+  font-family:'Lato',sans-serif;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ═══════════════════════════════════════
+   OPENING CURTAIN
+═══════════════════════════════════════ */
+#curtain {
+  position:fixed; inset:0; z-index:1000;
+  display:flex; align-items:center; justify-content:center;
+  background:#1a0a05;
+  cursor:pointer;
+  transition:opacity 1.4s ease;
+}
+#curtain.fade-out { opacity:0; pointer-events:none; }
+
+/* fabric panels */
+.curtain-left, .curtain-right {
+  position:absolute; top:0; bottom:0; width:52%;
+  background:linear-gradient(180deg,#2e1208 0%,#1a0a05 60%,#2e1208 100%);
+  transition:transform 1.8s cubic-bezier(0.76,0,0.24,1);
+  will-change:transform;
+  overflow:hidden;
+}
+.curtain-left  { left:0;  transform-origin:left center; }
+.curtain-right { right:0; transform-origin:right center; }
+
+/* fabric sheen lines */
+.curtain-left::before, .curtain-right::before {
+  content:'';
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 18px,
+    rgba(201,169,110,0.04) 18px,
+    rgba(201,169,110,0.04) 19px
+  );
+}
+/* gold trim edge */
+.curtain-left::after {
+  content:'';
+  position:absolute; top:0; right:0; bottom:0; width:2px;
+  background:linear-gradient(180deg,transparent,var(--gold),var(--gold),transparent);
+  opacity:0.4;
+}
+.curtain-right::after {
+  content:'';
+  position:absolute; top:0; left:0; bottom:0; width:2px;
+  background:linear-gradient(180deg,transparent,var(--gold),var(--gold),transparent);
+  opacity:0.4;
+}
+
+#curtain.open .curtain-left  { transform:translateX(-100%); }
+#curtain.open .curtain-right { transform:translateX(100%); }
+
+/* Center stage content */
+.stage-center {
+  position:relative; z-index:2;
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; padding:0 28px;
+  animation:stagePulse 3s ease-in-out infinite;
+}
+@keyframes stagePulse {
+  0%,100% { opacity:1; } 50% { opacity:0.7; }
+}
+.stage-mantra {
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.75rem; letter-spacing:0.5em;
+  color:var(--gold); text-transform:uppercase;
+  margin-bottom:24px; opacity:0.8;
+}
+.stage-names {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,13vw,5.5rem);
+  font-weight:300; font-style:italic;
+  color:var(--champagne); line-height:1.05;
+}
+.stage-amp {
+  display:block; font-size:0.6em;
+  color:var(--rose); line-height:1.2;
+}
+.stage-rule {
+  display:flex; align-items:center; gap:10px;
+  margin:20px auto; width:min(220px,70vw);
+}
+.stage-rule-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,rgba(201,169,110,0.5),transparent); }
+.stage-rule-gem  { color:var(--gold); font-size:0.9rem; opacity:0.7; }
+.stage-tap {
+  font-size:0.62rem; letter-spacing:0.45em; text-transform:uppercase;
+  color:rgba(201,169,110,0.5);
+  animation:tapBlink 2s ease-in-out infinite;
+}
+@keyframes tapBlink {
+  0%,100% { opacity:0.5; } 50% { opacity:1; }
+}
+
+/* Scattered gold particles on curtain */
+.spark {
+  position:absolute;
+  width:3px; height:3px; border-radius:50%;
+  background:var(--gold);
+  opacity:0;
+  animation:sparkFloat linear infinite;
+  pointer-events:none;
+}
+@keyframes sparkFloat {
+  0%   { opacity:0; transform:translateY(0) scale(0); }
+  20%  { opacity:0.6; transform:translateY(-20px) scale(1); }
+  80%  { opacity:0.3; }
+  100% { opacity:0; transform:translateY(-80px) scale(0.3); }
+}
+
+/* Lotus ring on curtain */
+.curtain-lotus {
+  position:absolute;
+  width:min(300px,80vw); height:min(300px,80vw);
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  opacity:0.07;
+  animation:spin 30s linear infinite;
+  pointer-events:none;
+  z-index:1;
+}
+@keyframes spin { to { transform:translate(-50%,-50%) rotate(360deg); } }
+
+/* ═══════════════════════════════════════
+   MUSIC BUTTON
+═══════════════════════════════════════ */
+#music-btn {
+  position:fixed; top:18px; right:18px; z-index:900;
+  width:40px; height:40px; border-radius:50%;
+  background:rgba(26,10,5,0.7);
+  border:1px solid rgba(201,169,110,0.35);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; opacity:0;
+  transition:opacity 0.6s ease, background 0.3s ease;
+  -webkit-tap-highlight-color:transparent;
+  backdrop-filter:blur(8px);
+}
+#music-btn.visible { opacity:1; }
+#music-btn:active  { background:rgba(201,169,110,0.2); }
+.music-icon { font-size:1rem; animation:noteFloat 2s ease-in-out infinite; }
+@keyframes noteFloat {
+  0%,100% { transform:translateY(0); }
+  50%      { transform:translateY(-2px); }
+}
+.music-bars {
+  display:flex; gap:2px; align-items:flex-end; height:16px;
+}
+.music-bars span {
+  width:3px; border-radius:2px;
+  background:var(--gold); display:block;
+  animation:barDance 0.8s ease-in-out infinite alternate;
+}
+.music-bars span:nth-child(1){ height:6px;  animation-delay:0s; }
+.music-bars span:nth-child(2){ height:14px; animation-delay:0.15s; }
+.music-bars span:nth-child(3){ height:9px;  animation-delay:0.3s; }
+.music-bars span:nth-child(4){ height:12px; animation-delay:0.1s; }
+@keyframes barDance {
+  from { transform:scaleY(0.4); }
+  to   { transform:scaleY(1); }
+}
+.music-paused .music-bars span { animation-play-state:paused; opacity:0.4; }
+
+/* ═══════════════════════════════════════
+   MAIN CONTENT (hidden until curtain opens)
+═══════════════════════════════════════ */
+#main { opacity:0; transition:opacity 1.2s ease 0.4s; }
+#main.visible { opacity:1; }
+
+/* ═══════════════════════════════════════
+   PETALS
+═══════════════════════════════════════ */
+.petal {
+  position:fixed; pointer-events:none; z-index:300;
+  border-radius:60% 0 60% 0; opacity:0;
+  animation:petalDrift linear infinite;
+  will-change:transform,opacity;
+}
+@keyframes petalDrift {
+  0%   { transform:translateY(-30px) translateX(0) rotate(0deg); opacity:0; }
+  5%   { opacity:0.8; }
+  90%  { opacity:0.4; }
+  100% { transform:translateY(108vh) translateX(35px) rotate(400deg); opacity:0; }
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+#hero {
+  min-height:100svh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; position:relative;
+  overflow:hidden; padding:60px 28px 90px;
+  background:
+    radial-gradient(ellipse at 25% 15%,#fde8de 0%,transparent 55%),
+    radial-gradient(ellipse at 80% 85%,#f5e4d0 0%,transparent 50%),
+    var(--cream);
+}
+.mandala {
+  position:absolute;
+  width:min(520px,130vw); height:min(520px,130vw);
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  opacity:0.055;
+  animation:spin 80s linear infinite;
+  pointer-events:none;
+}
+.mandala2 {
+  opacity:0.03;
+  width:min(340px,88vw); height:min(340px,88vw);
+  animation:spin 50s linear infinite reverse;
+}
+.ring {
+  position:absolute; border-radius:50%;
+  top:50%; left:50%; transform:translate(-50%,-50%);
+  pointer-events:none; animation:ringPulse 5s ease-in-out infinite;
+}
+.ring:nth-child(3){ width:min(310px,83vw);  height:min(310px,83vw);  border:1px solid rgba(201,169,110,0.2);  }
+.ring:nth-child(4){ width:min(420px,110vw); height:min(420px,110vw); border:1px solid rgba(201,169,110,0.11); animation-delay:1.2s; }
+.ring:nth-child(5){ width:min(530px,138vw); height:min(530px,138vw); border:1px solid rgba(201,169,110,0.06); animation-delay:2.4s; }
+@keyframes ringPulse {
+  0%,100%{ transform:translate(-50%,-50%) scale(1);    opacity:1; }
+  50%    { transform:translate(-50%,-50%) scale(1.04); opacity:0.55; }
+}
+.frame { position:absolute; inset:16px; pointer-events:none; }
+.frame::before,.frame::after,.frame>span::before,.frame>span::after{
+  content:''; position:absolute;
+  width:42px; height:42px;
+  border-color:var(--gold); border-style:solid; opacity:0.42;
+}
+.frame::before      { top:0; left:0;   border-width:2px 0 0 2px; }
+.frame::after       { top:0; right:0;  border-width:2px 2px 0 0; }
+.frame>span::before { bottom:0; left:0;  border-width:0 0 2px 2px; }
+.frame>span::after  { bottom:0; right:0; border-width:0 2px 2px 0; }
+
+.hero-mantra {
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.78rem; letter-spacing:0.48em;
+  color:var(--gold); text-transform:uppercase;
+  opacity:0; animation:riseIn 1s ease forwards 0.2s;
+  margin-bottom:28px; position:relative; z-index:2;
+}
+.hero-names {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300; font-style:italic;
+  font-size:clamp(3.2rem,15vw,6.5rem);
+  line-height:1.05; color:var(--deep);
+  opacity:0; animation:riseIn 1.2s ease forwards 0.45s;
+  position:relative; z-index:2;
+}
+.hero-amp { display:block; font-size:0.6em; color:var(--dusty); line-height:1.15; }
+.hero-rule {
+  display:flex; align-items:center; gap:12px;
+  margin:22px auto;
+  opacity:0; animation:riseIn 1s ease forwards 0.7s;
+  width:min(260px,75vw); position:relative; z-index:2;
+}
+.hero-rule-line { flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.hero-rule-gem  { color:var(--gold); font-size:1rem; }
+.hero-sub {
+  font-family:'Lato',sans-serif; font-weight:300;
+  font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--dusty);
+  opacity:0; animation:riseIn 1s ease forwards 0.9s;
+  position:relative; z-index:2;
+}
+.scroll-invite {
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  opacity:0; animation:riseIn 1s ease forwards 2.2s;
+}
+.scroll-invite p { font-size:0.58rem; letter-spacing:0.38em; text-transform:uppercase; color:var(--gold); }
+.scroll-line { width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); animation:breathe 2s ease-in-out infinite; }
+@keyframes breathe { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.3;transform:scaleY(0.55)} }
+@keyframes riseIn  { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+/* ═══════════════════════════════════════
+   SHARED
+═══════════════════════════════════════ */
+section { position:relative; overflow:hidden; padding:80px 28px; }
+.eyebrow { font-size:0.62rem; letter-spacing:0.5em; text-transform:uppercase; color:var(--gold); text-align:center; margin-bottom:8px; display:block; }
+.sec-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,7vw,3rem); font-weight:300; font-style:italic; text-align:center; color:var(--deep); margin-bottom:36px; line-height:1.2; }
+.r { opacity:0; transform:translateY(34px); transition:opacity 0.85s ease,transform 0.85s ease; }
+.r.on { opacity:1; transform:translateY(0); }
+.r.d1{transition-delay:0.1s} .r.d2{transition-delay:0.22s}
+.r.d3{transition-delay:0.36s} .r.d4{transition-delay:0.5s}
+
+/* ═══════════════════════════════════════
+   DIYA DIVIDER
+═══════════════════════════════════════ */
+.diya-row {
+  display:flex; justify-content:center; align-items:flex-end;
+  gap:clamp(12px,5vw,26px); padding:26px 0;
+  background:var(--petal); overflow:hidden;
+}
+.diya { display:flex; flex-direction:column; align-items:center; gap:2px; animation:divaFloat 3s ease-in-out infinite; }
+.diya:nth-child(2){animation-delay:0.6s}
+.diya:nth-child(3){animation-delay:1.2s}
+.diya:nth-child(4){animation-delay:0.3s}
+.diya:nth-child(5){animation-delay:1.8s}
+@keyframes divaFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+.flame { width:8px; height:13px; background:radial-gradient(ellipse at 50% 80%,#ffdd66,#ff9933,transparent); border-radius:50% 50% 30% 30%; animation:flicker 1.5s ease-in-out infinite alternate; filter:blur(0.4px); }
+.diya:nth-child(even) .flame{animation-delay:0.4s;width:6px;height:10px}
+@keyframes flicker { 0%{transform:scaleY(1) scaleX(1);opacity:1} 100%{transform:scaleY(0.82) scaleX(1.12);opacity:0.8} }
+.diya-body { font-size:clamp(1.3rem,5vw,2rem); line-height:1; filter:drop-shadow(0 2px 4px rgba(200,90,40,0.28)); }
+
+/* ═══════════════════════════════════════
+   DATE
+═══════════════════════════════════════ */
+#date-sec { background:linear-gradient(160deg,#fdf2ea 0%,var(--champagne) 60%,#f6eadb 100%); text-align:center; }
+.date-month-label { font-family:'Cinzel',serif; font-size:clamp(0.85rem,3vw,1.1rem); letter-spacing:0.7em; color:var(--gold); text-transform:uppercase; margin-bottom:2px; }
+.date-big { font-family:'Cormorant Garamond',serif; font-size:clamp(7.5rem,38vw,14rem); font-weight:300; line-height:0.82; color:var(--deep); position:relative; display:inline-block; }
+.date-big::after { content:attr(data-n); position:absolute; inset:0; color:var(--blush); z-index:-1; transform:translate(5px,7px); }
+.date-pills { display:flex; justify-content:center; align-items:center; gap:8px; margin:18px 0 0; flex-wrap:wrap; }
+.pill { background:var(--deep); color:var(--champagne); padding:7px 18px; font-size:0.66rem; letter-spacing:0.3em; text-transform:uppercase; font-family:'Lato',sans-serif; font-weight:300; }
+.pill-ghost { background:transparent; border:1px solid var(--dusty); color:var(--dusty); }
+.lotus-div { display:flex; align-items:center; justify-content:center; gap:10px; padding:18px 0 0; }
+.lotus-line { flex:1; max-width:70px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.lotus-icon { color:var(--gold); font-size:1rem; letter-spacing:0.15em; }
+.countdown { display:flex; justify-content:center; align-items:flex-start; gap:5px; margin-top:32px; }
+.cd-block { text-align:center; min-width:54px; }
+.cd-num { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,10vw,3.8rem); font-weight:300; line-height:1; color:var(--deep); display:block; }
+.cd-label { font-size:0.53rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-top:4px; display:block; }
+.cd-sep { font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--rose); margin-top:6px; line-height:1; }
+
+/* ═══════════════════════════════════════
+   VENUE
+═══════════════════════════════════════ */
+#venue { background:var(--cream); text-align:center; }
+.venue-card { border:1px solid var(--gold-pale); padding:36px 24px 32px; position:relative; background:var(--champagne); max-width:400px; margin:0 auto; }
+.venue-card::before { content:'✦'; position:absolute; top:-0.65em; left:50%; transform:translateX(-50%); background:var(--champagne); padding:0 12px; color:var(--gold); font-size:0.88rem; }
+.venue-card::after  { content:'✦'; position:absolute; bottom:-0.65em; left:50%; transform:translateX(-50%); background:var(--champagne); padding:0 12px; color:var(--gold); font-size:0.88rem; }
+.venue-name { font-family:'Cinzel',serif; font-size:clamp(1.3rem,6vw,2rem); color:var(--deep); letter-spacing:0.06em; margin-bottom:6px; }
+.venue-time { font-family:'Cormorant Garamond',serif; font-size:1rem; font-style:italic; color:var(--dusty); letter-spacing:0.04em; margin-bottom:20px; }
+.venue-rule { height:1px; background:linear-gradient(90deg,transparent,var(--gold-pale),transparent); margin-bottom:20px; }
+.venue-desc { font-size:0.85rem; line-height:1.9; font-weight:300; color:var(--deep); }
+.map-btn { display:inline-flex; align-items:center; gap:7px; margin-top:24px; padding:12px 26px; border:1px solid var(--deep); font-family:'Lato',sans-serif; font-size:0.66rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--deep); text-decoration:none; transition:background 0.3s ease,color 0.3s ease; }
+.map-btn:active,.map-btn:hover { background:var(--deep); color:var(--champagne); }
+
+/* ═══════════════════════════════════════
+   FAMILIES
+═══════════════════════════════════════ */
+#families { background:linear-gradient(180deg,#fde9e1 0%,var(--cream) 100%); text-align:center; }
+.families-flex { display:flex; gap:0; justify-content:center; max-width:380px; margin:0 auto; }
+.fam-col { flex:1; padding:20px 14px 0; }
+.fam-col:first-child { border-right:1px solid rgba(224,160,144,0.4); }
+.fam-tag { font-size:0.58rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px; }
+.fam-name { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,7vw,2.2rem); font-style:italic; font-weight:300; color:var(--deep); line-height:1.15; }
+
+/* ═══════════════════════════════════════
+   BLESSINGS
+═══════════════════════════════════════ */
+#blessings { background:var(--deep2); padding:100px 28px; text-align:center; }
+#blessings .eyebrow { color:rgba(201,169,110,0.5); }
+.star { position:absolute; color:var(--gold); opacity:0.14; animation:twinkle 4s ease-in-out infinite; font-size:0.75rem; pointer-events:none; }
+@keyframes twinkle { 0%,100%{opacity:0.12;transform:scale(1)} 50%{opacity:0.38;transform:scale(1.35)} }
+.quote-wrap { position:relative; max-width:340px; margin:0 auto 28px; }
+.quote-bg { position:absolute; top:-28px; left:-6px; font-family:'Cormorant Garamond',serif; font-size:8.5rem; line-height:1; color:rgba(201,169,110,0.07); pointer-events:none; user-select:none; }
+.quote-text { font-family:'Cormorant Garamond',serif; font-size:clamp(1.45rem,6vw,2.1rem); font-style:italic; font-weight:300; line-height:1.6; color:var(--gold-pale); position:relative; z-index:1; }
+.quote-sig { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; color:var(--rose); letter-spacing:0.04em; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer { background:var(--deep2); border-top:1px solid rgba(201,169,110,0.12); padding:50px 28px 44px; text-align:center; }
+.footer-names { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,7vw,2.1rem); font-style:italic; font-weight:300; color:var(--champagne); }
+.footer-line { width:46px; height:1px; background:rgba(201,169,110,0.3); margin:16px auto; }
+.footer-info { font-size:0.63rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(201,169,110,0.45); line-height:2.4; }
+
+@media(max-width:360px){ .countdown{gap:2px} .cd-block{min-width:46px} }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ CURTAIN ══════════════ -->
+<div id="curtain" onclick="openCurtain()">
+  <!-- Spinning lotus bg -->
+  <svg class="curtain-lotus" viewBox="0 0 500 500" fill="none">
+    <g stroke="#c9a96e" stroke-width="0.6">
+      <circle cx="250" cy="250" r="220"/><circle cx="250" cy="250" r="178"/><circle cx="250" cy="250" r="136"/>
+      <circle cx="250" cy="250" r="94"/><circle cx="250" cy="250" r="52"/>
+      <path d="M250 30L250 470M30 250L470 250M92 92L408 408M408 92L92 408"/>
+      <path d="M250 30C315 120 315 380 250 470C185 380 185 120 250 30"/>
+      <path d="M30 250C120 315 380 315 470 250C380 185 120 185 30 250"/>
+      <path d="M250 30Q355 100 470 250Q355 400 250 470Q145 400 30 250Q145 100 250 30"/>
+      <path d="M250 78Q332 142 422 250Q332 358 250 422Q168 358 78 250Q168 142 250 78"/>
+    </g>
+    <g fill="#c9a96e"><circle cx="250" cy="30" r="4"/><circle cx="470" cy="250" r="4"/><circle cx="250" cy="470" r="4"/><circle cx="30" cy="250" r="4"/><circle cx="92" cy="92" r="3"/><circle cx="408" cy="92" r="3"/><circle cx="408" cy="408" r="3"/><circle cx="92" cy="408" r="3"/></g>
+  </svg>
+
+  <div class="curtain-left"></div>
+  <div class="curtain-right"></div>
+
+  <div class="stage-center">
+    <p class="stage-mantra">ॐ नमः शिवाय</p>
+    <div class="stage-names">
+      Sri Hari
+      <span class="stage-amp">&amp;</span>
+      Sakthi Sobiya
+    </div>
+    <div class="stage-rule">
+      <div class="stage-rule-line"></div>
+      <span class="stage-rule-gem">✦</span>
+      <div class="stage-rule-line"></div>
+    </div>
+    <p class="stage-tap">Tap to open</p>
+  </div>
+</div>
+
+<!-- ══════════════ MUSIC BUTTON ══════════════ -->
+<div id="music-btn" onclick="toggleMusic()" title="Toggle music">
+  <div class="music-bars" id="musicBars">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- Hidden audio — uses YouTube embed approach via iframe for Sada Nannu -->
+<!-- We'll use Web Audio API with a YouTube-sourced approach via a proxy tune -->
+<!-- Since direct audio files aren't available, we embed a gentle fallback tone
+     and provide a clear YouTube music note -->
+<audio id="bgAudio" loop preload="none">
+  <!-- Sada Nannu Palimpa - if user has the file they can replace src -->
+  <!-- Fallback: gentle ambient tone generated via Web Audio -->
+</audio>
+
+<!-- ══════════════ MAIN CONTENT ══════════════ -->
+<div id="main">
+
+<!-- HERO -->
+<section id="hero">
+  <svg class="mandala" viewBox="0 0 500 500" fill="none">
+    <g stroke="#c9a96e" stroke-width="0.55">
+      <circle cx="250" cy="250" r="220"/><circle cx="250" cy="250" r="178"/>
+      <circle cx="250" cy="250" r="136"/><circle cx="250" cy="250" r="94"/>
+      <circle cx="250" cy="250" r="52"/>
+      <path d="M250 30L250 470M30 250L470 250M92 92L408 408M408 92L92 408"/>
+      <path d="M250 30C315 120 315 380 250 470C185 380 185 120 250 30"/>
+      <path d="M30 250C120 315 380 315 470 250C380 185 120 185 30 250"/>
+      <path d="M250 30Q355 100 470 250Q355 400 250 470Q145 400 30 250Q145 100 250 30"/>
+      <path d="M250 78Q332 142 422 250Q332 358 250 422Q168 358 78 250Q168 142 250 78"/>
+    </g>
+    <g fill="#c9a96e">
+      <circle cx="250" cy="30" r="4"/><circle cx="470" cy="250" r="4"/>
+      <circle cx="250" cy="470" r="4"/><circle cx="30" cy="250" r="4"/>
+      <circle cx="92" cy="92" r="3"/><circle cx="408" cy="92" r="3"/>
+      <circle cx="408" cy="408" r="3"/><circle cx="92" cy="408" r="3"/>
+    </g>
+  </svg>
+  <svg class="mandala mandala2" viewBox="0 0 500 500" fill="none">
+    <g stroke="#c9a96e" stroke-width="0.45">
+      <circle cx="250" cy="250" r="198"/><circle cx="250" cy="250" r="152"/>
+      <circle cx="250" cy="250" r="106"/><circle cx="250" cy="250" r="60"/>
+      <path d="M250 52L250 448M52 250L448 250M109 109L391 391M391 109L109 391"/>
+      <path d="M250 52Q350 148 448 250Q350 352 250 448Q150 352 52 250Q150 148 250 52"/>
+    </g>
+  </svg>
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="frame"><span></span></div>
+
+  <p class="hero-mantra">ॐ नमः शिवाय</p>
+  <div class="hero-names">
+    Sri Hari
+    <span class="hero-amp">&amp;</span>
+    Sakthi Sobiya
+  </div>
+  <div class="hero-rule">
+    <div class="hero-rule-line"></div>
+    <span class="hero-rule-gem">✦</span>
+    <div class="hero-rule-line"></div>
+  </div>
+  <p class="hero-sub">Together with their families &nbsp;·&nbsp; invite you to celebrate</p>
+  <div class="scroll-invite">
+    <p>Scroll</p>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- DIYA -->
+<div class="diya-row" aria-hidden="true">
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+</div>
+
+<!-- DATE -->
+<section id="date-sec">
+  <span class="eyebrow r">Save the Date</span>
+  <div class="date-month-label r d1">June</div>
+  <div style="text-align:center;line-height:1;" class="r d2">
+    <span class="date-big" data-n="28">28</span>
+  </div>
+  <div class="date-pills r d3">
+    <span class="pill">Sunday</span>
+    <span class="pill pill-ghost">2026</span>
+    <span class="pill">6 PM</span>
+  </div>
+  <div class="lotus-div r d4">
+    <div class="lotus-line"></div>
+    <span class="lotus-icon">✿ ✦ ✿</span>
+    <div class="lotus-line"></div>
+  </div>
+  <div class="countdown r d4">
+    <div class="cd-block"><span class="cd-num" id="cd-d">—</span><span class="cd-label">Days</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-block"><span class="cd-num" id="cd-h">—</span><span class="cd-label">Hours</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-block"><span class="cd-num" id="cd-m">—</span><span class="cd-label">Mins</span></div>
+    <span class="cd-sep">·</span>
+    <div class="cd-block"><span class="cd-num" id="cd-s">—</span><span class="cd-label">Secs</span></div>
+  </div>
+</section>
+
+<!-- DIYA -->
+<div class="diya-row" aria-hidden="true">
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+  <div class="diya"><div class="flame"></div><div class="diya-body">🪔</div></div>
+</div>
+
+<!-- VENUE -->
+<section id="venue">
+  <span class="eyebrow r">Where We Celebrate</span>
+  <div class="venue-card r d1">
+    <div class="venue-name">Vijay Elanza</div>
+    <div class="venue-time">Sunday, June 28 · 6 PM onwards</div>
+    <div class="venue-rule"></div>
+    <p class="venue-desc">Join us at the beautifully adorned Vijay Elanza as we begin this sacred journey together, under the blessings of Lord Shiva.</p>
+    <a href="https://maps.google.com/?q=Vijay+Elanza" target="_blank" rel="noopener" class="map-btn">📍 &nbsp;View on Maps</a>
+  </div>
+</section>
+
+<!-- FAMILIES -->
+<section id="families">
+  <span class="eyebrow r">With Joy &amp; Blessings</span>
+  <h2 class="sec-title r d1">Our Families</h2>
+  <div class="families-flex r d2">
+    <div class="fam-col">
+      <span class="fam-tag">Groom</span>
+      <div class="fam-name">Sri Hari</div>
+    </div>
+    <div class="fam-col">
+      <span class="fam-tag">Bride</span>
+      <div class="fam-name">Sakthi Sobiya</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLESSINGS -->
+<section id="blessings">
+  <div class="star" style="top:10%;left:7%;animation-delay:0s">✦</div>
+  <div class="star" style="top:18%;right:9%;animation-delay:1.3s">✦</div>
+  <div class="star" style="bottom:16%;left:12%;animation-delay:2.2s">✦</div>
+  <div class="star" style="bottom:10%;right:8%;animation-delay:0.8s">✦</div>
+  <div class="star" style="top:48%;left:4%;animation-delay:3.1s;font-size:0.45rem">✦</div>
+  <div class="star" style="top:44%;right:5%;animation-delay:1.9s;font-size:0.45rem">✦</div>
+  <span class="eyebrow r">A Note from the Heart</span>
+  <div class="quote-wrap r d1">
+    <span class="quote-bg" aria-hidden="true">"</span>
+    <p class="quote-text">Your presence and blessings mean the world to us.</p>
+  </div>
+  <p class="quote-sig r d2">— Sri &amp; Sofi's family await you</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-names">Sri Hari &amp; Sakthi Sobiya</div>
+  <div class="footer-line"></div>
+  <div class="footer-info">
+    June 28 &nbsp;·&nbsp; 2026<br>
+    Vijay Elanza &nbsp;·&nbsp; 6 PM<br>
+    In His Grace, We Begin
+  </div>
+</footer>
+
+</div><!-- /main -->
+
+<script>
+/* ══════════════════════════════════════
+   CURTAIN OPEN
+══════════════════════════════════════ */
+let curtainOpened = false;
+
+function openCurtain() {
+  if (curtainOpened) return;
+  curtainOpened = true;
+  const curtain = document.getElementById('curtain');
+  curtain.classList.add('open');
+  // After panels slide out, fade curtain div fully then remove
+  setTimeout(() => {
+    curtain.classList.add('fade-out');
+    document.getElementById('main').classList.add('visible');
+    document.getElementById('music-btn').classList.add('visible');
+    startMusic();
+    setTimeout(() => curtain.remove(), 1600);
+  }, 1400);
+}
+
+/* Sparks on curtain */
+(function spawnSparks() {
+  const curtain = document.getElementById('curtain');
+  if (!curtain) return;
+  const positions = [
+    {left:'15%',bottom:'20%'},{left:'80%',bottom:'30%'},
+    {left:'30%',bottom:'60%'},{left:'70%',bottom:'50%'},
+    {left:'50%',bottom:'15%'},{left:'20%',top:'40%'},
+    {left:'75%',top:'35%'},{left:'45%',top:'20%'},
+    {left:'60%',bottom:'70%'},{left:'10%',bottom:'45%'}
+  ];
+  positions.forEach((pos, i) => {
+    const el = document.createElement('div');
+    el.className = 'spark';
+    Object.assign(el.style, pos, {
+      animationDuration: (2.5 + Math.random() * 2) + 's',
+      animationDelay:    (i * 0.4) + 's'
+    });
+    curtain.appendChild(el);
+  });
+})();
+
+/* ══════════════════════════════════════
+   MUSIC — Web Audio API ambient tone
+   (acts as a beautiful soft hum until
+    user replaces src with actual mp3)
+══════════════════════════════════════ */
+let audioCtx = null;
+let masterGain = null;
+let musicPlaying = false;
+let nodes = [];
+
+// Try loading audio file first; fall back to synthesized tone
+const bgAudio = document.getElementById('bgAudio');
+
+function startMusic() {
+  // If you have the audio file, set it here:
+  // bgAudio.src = 'sada-nannu.mp3';
+  // bgAudio.play().then(() => { musicPlaying = true; }).catch(() => synthMusic());
+  
+  // For now, we use synthesized ambient tones that feel devotional
+  synthMusic();
+}
+
+function synthMusic() {
+  if (musicPlaying) return;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + 3);
+    masterGain.connect(audioCtx.destination);
+
+    // Tanpura-like drone — Sa (C) + Pa (G) + Sa octave
+    const freqs = [130.81, 196.00, 261.63, 392.00, 523.25];
+    freqs.forEach((freq, i) => {
+      const osc  = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      const filt = audioCtx.createBiquadFilter();
+      filt.type = 'lowpass';
+      filt.frequency.value = 800;
+      osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+      osc.frequency.value = freq;
+      // Gentle volume per harmonic
+      const vol = [0.5, 0.25, 0.4, 0.2, 0.15][i];
+      gain.gain.value = vol;
+      // Slow tremolo
+      const lfo = audioCtx.createOscillator();
+      const lfoGain = audioCtx.createGain();
+      lfo.frequency.value = 0.3 + i * 0.07;
+      lfoGain.gain.value = 0.02;
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+      lfo.start();
+      osc.connect(filt);
+      filt.connect(gain);
+      gain.connect(masterGain);
+      osc.start();
+      nodes.push(osc, lfo);
+    });
+
+    musicPlaying = true;
+  } catch(e) { /* audio not supported */ }
+}
+
+function toggleMusic() {
+  const btn = document.getElementById('music-btn');
+  if (!musicPlaying && !audioCtx) { synthMusic(); return; }
+  if (audioCtx) {
+    if (masterGain.gain.value > 0.01) {
+      masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+      btn.classList.add('music-paused');
+    } else {
+      masterGain.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + 1);
+      btn.classList.remove('music-paused');
+    }
+  }
+}
+
+/* ══════════════════════════════════════
+   PETALS
+══════════════════════════════════════ */
+const COLORS = ['#f7ddd5','#e0a090','#f9d0c0','#fce0d5','#eac4b5'];
+const isMobile = window.innerWidth < 600;
+function spawnPetal() {
+  const el = document.createElement('div');
+  el.className = 'petal';
+  const sz = 8 + Math.random() * 9;
+  el.style.cssText = `left:${Math.random()*100}vw;width:${sz}px;height:${sz*1.3}px;background:${COLORS[Math.floor(Math.random()*COLORS.length)]};animation-duration:${7+Math.random()*9}s;animation-delay:${Math.random()*4}s;transform:rotate(${Math.random()*360}deg);`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 16000);
+}
+// Only spawn after curtain opens
+document.getElementById('curtain').addEventListener('click', () => {
+  setTimeout(() => setInterval(spawnPetal, isMobile ? 1000 : 650), 2000);
+}, {once:true});
+
+/* ══════════════════════════════════════
+   COUNTDOWN
+══════════════════════════════════════ */
+function tick() {
+  const diff = new Date('2026-06-28T18:00:00') - new Date();
+  if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '0'); return; }
+  document.getElementById('cd-d').textContent = Math.floor(diff/86400000);
+  document.getElementById('cd-h').textContent = String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(Math.floor(diff%60000/1000)).padStart(2,'0');
+}
+tick(); setInterval(tick, 1000);
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════ */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, {threshold:0.1});
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
