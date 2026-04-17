@@ -669,7 +669,7 @@ const bgAudio = document.getElementById('bgAudio');
 function startMusic() {
   // If you have the audio file, set it here:
   bgAudio.src = 'sada-nannu.mp3';
-  bgAudio.volume = 0.1;
+  bgAudio.volume = 0.02;
   bgAudio.play().then(() => { musicPlaying = true; }).catch(() => synthMusic());
   
   // For now, we use synthesized ambient tones that feel devotional
@@ -684,11 +684,11 @@ function toggleMusic() {
   const btn = document.getElementById('music-btn');
   if (!musicPlaying && !audioCtx) { synthMusic(); return; }
   if (audioCtx) {
-    if (masterGain.gain.value > 0.01) {
-      masterGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1);
+    if (bgAudio.volume > 0.01) {
+      bgAudio.volume = 0;
       btn.classList.add('music-paused');
     } else {
-      masterGain.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + 1);
+      bgAudio.volume = 0.02;
       btn.classList.remove('music-paused');
     }
   }
