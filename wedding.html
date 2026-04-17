@@ -682,15 +682,21 @@ function synthMusic() {
 
 function toggleMusic() {
   const btn = document.getElementById('music-btn');
-  if (!musicPlaying && !audioCtx) { synthMusic(); return; }
-  if (audioCtx) {
-    if (bgAudio.volume > 0.01) {
-      bgAudio.volume = 0;
-      btn.classList.add('music-paused');
-    } else {
-      bgAudio.volume = 0.02;
-      btn.classList.remove('music-paused');
-    }
+  
+  // 1. If music hasn't started yet, start it
+  if (!musicPlaying) {
+    startMusic();
+    btn.classList.remove('music-paused');
+    return;
+  }
+
+  // 2. Toggle the muted state
+  if (bgAudio.muted) {
+    bgAudio.muted = false;
+    btn.classList.remove('music-paused');
+  } else {
+    bgAudio.muted = true;
+    btn.classList.add('music-paused');
   }
 }
 
