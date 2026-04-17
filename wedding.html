@@ -673,48 +673,11 @@ function startMusic() {
   bgAudio.play().then(() => { musicPlaying = true; }).catch(() => synthMusic());
   
   // For now, we use synthesized ambient tones that feel devotional
-  synthMusic();
+  // synthMusic();
 }
 
 function synthMusic() {
-  if (musicPlaying) return;
-  try {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
-    masterGain.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + 3);
-    masterGain.connect(audioCtx.destination);
-
-    // Tanpura-like drone — Sa (C) + Pa (G) + Sa octave
-    const freqs = [130.81, 196.00, 261.63, 392.00, 523.25];
-    freqs.forEach((freq, i) => {
-      const osc  = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      const filt = audioCtx.createBiquadFilter();
-      filt.type = 'lowpass';
-      filt.frequency.value = 800;
-      osc.type = i % 2 === 0 ? 'sine' : 'triangle';
-      osc.frequency.value = freq;
-      // Gentle volume per harmonic
-      const vol = [0.5, 0.25, 0.4, 0.2, 0.15][i];
-      gain.gain.value = vol;
-      // Slow tremolo
-      const lfo = audioCtx.createOscillator();
-      const lfoGain = audioCtx.createGain();
-      lfo.frequency.value = 0.3 + i * 0.07;
-      lfoGain.gain.value = 0.02;
-      lfo.connect(lfoGain);
-      lfoGain.connect(gain.gain);
-      lfo.start();
-      osc.connect(filt);
-      filt.connect(gain);
-      gain.connect(masterGain);
-      osc.start();
-      nodes.push(osc, lfo);
-    });
-
-    musicPlaying = true;
-  } catch(e) { /* audio not supported */ }
+  
 }
 
 function toggleMusic() {
